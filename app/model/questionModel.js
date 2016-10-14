@@ -1,0 +1,30 @@
+'use-strict';
+
+var mongoose = require('mongoose');
+
+var Schema = mongoose.Schema;
+
+var questionSchema = new Schema({
+	questionId : { type: Number, required: true, unique: true , index: true},
+	catagoryId : Number,
+	question   : String,
+	postDate   : Date,
+	userId     : Number,
+	rate       : Number,
+	lastModify : Date
+},
+{ strict: false });
+
+
+questionSchema.virtual('PrimaryKey').get(function(){
+	return 'questionId';
+});
+
+questionSchema.virtual('CollectionName').get(function(){
+	return 'Questions';
+});
+
+var Questions = mongoose.model('Questions',questionSchema);
+
+module.exports = Questions;
+

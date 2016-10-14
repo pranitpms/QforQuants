@@ -1,7 +1,8 @@
 'use-strict';
 
-var collectionFactory = require('../model/collectionFactory');
-var routeFactory      = require('./routes');
+var AppPath           = require('rfr');
+var collectionFactory = AppPath('model/collectionFactory');
+var routeFactory      = AppPath('routes');
 
 var _collectionName = null;
 var _collectionType = null;

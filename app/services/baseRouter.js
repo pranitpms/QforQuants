@@ -1,7 +1,8 @@
 'use-strict';
 
+var AppPath = require('rfr');
 var express = require('express');
-var service = require('./service');
+var service = AppPath('services/service');
 var router = express.Router();
 
 var serviceUri = null;

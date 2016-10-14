@@ -1,42 +1,58 @@
 'use-strict';
 
-var mongodb        = require('mongodb');
-var client = mongodb.MongoClient;
+var AppPath      = require('rfr');
+var Exception    = AppPath('/exceptions/baseException').Exception;
+var mongoose     = require('mongoose');
+mongoose.Promise = require('bluebird');
+
+var opts = { 
+	server: { 
+		auto_reconnect: true 
+	} 
+};
+
+var command = null;
 
 
-var Command = null;
+var createConnection = function(connectionString){
+	command = mongoose.createConnection(connectionString,opts);
+	return command;
+};
 
-module.exports = {
-	ConnectToClient : function (url,done){
-		
-		client.connect(url, function(err, db) {
-	    	if (err){
-	     		return done(err);
-	 		}
-	    	this.Command = db;
-	    	done();
-	  	})
-	},
-
-	CreateConnection : function (url,done){
-		if(this.Command){
-			return done();
-		}
-		this.ConnectToClient(url,done);
-	},
-
-	GetConnection : function (){
-		return this.Command;
-	},
-
-	Close : function (done){
-		if(this.Command){
-			this.Command.close(function(err,result){
-				this.Command = null;
-				done(err);
-			});
-		}
+var open = function(){
+	if(command){
+		command.open();
+		return true;
+	}
+	else{
+		var error = new Error('Connection is not created');
+		throw Exception(0,'connection',error,'-1000');
 	}
 };
 
- 
+var close = function(){
+	if(command){
+		command.close();
+		return true;
+	}
+	else{
+		var error = new Error('Connection is not created');
+		throw Exception(0,'connection',error,'-1000');
+	}
+};
+
+var setCommand = function(db){
+	command = db;
+}
+
+var getCommand =  function(){
+	return command
+}
+
+module.exports = {
+	CreateConnection : createConnection,
+	Open             : open,
+	Close            : close,
+	SetCommand       : setCommand,
+	GetCommand       : getCommand
+}

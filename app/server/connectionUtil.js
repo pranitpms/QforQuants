@@ -1,6 +1,6 @@
 'use-strict';
 
-var util    = require('util');
+var util          = require('util');
 
 var user          = encodeURIComponent('pranitpms');
 var password      = encodeURIComponent('Quants321');
@@ -10,18 +10,11 @@ var authSource    = 'Quants';
 var format = util.format;
 var url = format('mongodb://%s:%s@localhost:27017/Quants',user,password);
 
-var _connectionString = null;
+var _connectionString = url;
 
 //connect the database 
 module.exports = {
-
-	ConnectionString : function(){
-		if(_connectionString == null){
-			_connectionString = url;
-		}
-		return _connectionString;
-	}
-
+	ConnectionString : _connectionString
 };
 
 

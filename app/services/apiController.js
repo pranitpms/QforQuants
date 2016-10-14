@@ -1,9 +1,10 @@
 'use-strict';
 
+var AppPath    = require('rfr');
 var express    = require('express');
-var service    = require('./service');
-var connection = require('./connection');
-var proxy      = require('./index');
+var service    = AppPath('/services/service');
+var connection = AppPath('/server/connection');
+var proxy      = AppPath('/server/index');
 
 var name = null;
 var type = null;
@@ -33,7 +34,21 @@ router.get(serviceUri.getAll,function(req,res){
 	res.send(dataset);
 });
 
+router.get(serviceUri.get,function(req,res){
+	var dataset = Command.get().collection(AppCollection.collectionName);
+	res.send(dataset);
+});
+
 router.post(serviceUri.post,function(res,req){
 	var json  = req.body.json;
-	
+	res.end('repsonse object',json);
+});
+
+router.put(serviceUri.put,function(res,req){
+	var json = req.body.json;
+	res.end('response object',json);
+});
+
+router.delete(serviceUri.delete,function(res,req){
+	var 
 });
