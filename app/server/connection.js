@@ -15,7 +15,7 @@ var command = null;
 
 
 var createConnection = function(connectionString){
-	command = mongoose.createConnection(connectionString,opts);
+	command = mongoose.connect(connectionString,opts);
 	return command;
 };
 

@@ -1,6 +1,6 @@
 'use-strict'
 
-var update = function(modelObj,whereData,setData,done){
+var update = function(modelObj,whereData,setData){
 	var query = modelObj.update(whereData,setData);
 	var promise = query.exec();
 

@@ -18,7 +18,7 @@ categorySchema.virtual('PrimaryKey').get(function(){
 });
 
 categorySchema.virtual('CollectionName').get(function(){
-	return 'category';
+	return 'Category';
 });
 
 var Category = mongoose.model('Category',categorySchema);

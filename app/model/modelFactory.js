@@ -22,12 +22,12 @@ var getModel = function(modelType){
 	};
 
 var	getModelByName = function(modelName){
-		switch(modelName){
-			case 'users'    : return userModel;
-			case 'userRole' : return roleModel;
-			case 'question' : return questionModel;
-			case 'category' : return categoryModel;
-			case 'reply'    : return replyModel;
+		switch(modelName.toUpperCase()){
+			case 'USERS'    : return userModel;
+			case 'USERROLE' : return roleModel;
+			case 'QUESTIONS' : return questionModel;
+			case 'CATEGORY' : return categoryModel;
+			case 'REPLY'    : return replyModel;
 			case 'TBL'      : return tblModel;
 		}
 	};

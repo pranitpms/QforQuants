@@ -8,6 +8,7 @@ var conn    = AppPath('/server/connection');
 var server  = AppPath('/server/serverConfiguration');
 var up      = AppPath('/migrator/up/order');
 var down    = AppPath('/migrator/down/order');
+var API     = AppPath('/services/apiController');
 
 var util    = require('util');
 var format  = util.format;
@@ -15,16 +16,17 @@ var format  = util.format;
 var connectionString = conUtil.ConnectionString;
 
 var connection = conn.CreateConnection(connectionString);
-connection.once("open", function(callback) {
-     console.log("DB Connection succeeded.");
-     up.Executes();
- // 	server.listen(5000,function(){
-	// console.log('Server Connection succesfully..!!!\n');
-	// console.log('listening on port 5000');
-    
-	// })
-});
 
+if(connection){
+
+up.Executes(); // run migrator.
+API.InitRouteConfig(); //initialize configuration.
+server.listen(5000,function(){
+	console.log('Server Connection succesfully..!!!\n');
+	console.log('listening on port 5000');
+})
+
+}
 process.on('uncaughtException', (err) => {
 	var msg;
 	switch(err.errorCode){

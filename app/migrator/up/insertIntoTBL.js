@@ -9,8 +9,10 @@ var _            = require('lodash-node');
 var tblModel     = AppPath('/model/TBLModel');
 var userModel     = AppPath('/model/userModel');
 
- var mongoose     = require('mongoose');
-// mongoose.Promise = require('bluebird');
+var mongoose     = require('mongoose');
+mongoose.Promise = require('bluebird');
+
+var Q = require("q");
 
 helper.SetType('upgrade');
 var tblID = 1;
@@ -18,51 +20,21 @@ var tblID = 1;
 
 var insertIntoTBL = function(){
 var models = modelFactory.GetAllModels();
+	 var the_promises = [];
+	_.forEach(models,function(model){
 
-	// _.forEach(models,function(model){
+		var modelObj =  new model();
+		var data = createJson(modelObj,tblID);
+		var tbl = new tblModel(data);
 
-	// 	// var modelObj =  new model();
-	// 	// var data = createJson(modelObj,tblID);
-	// 	// var tbl = new tblModel(data);
-
-	// 	// //var promise = insert.Save(tbl);
-	// 	// var deferred = Q.defer();
-
-	// 	// tbl.save()
-	// 	// 	.then(function(result){
-	// 	// 		deferred.resolve(result);
-	// 	// 	})
-	// 	// 	.catch(function(error){
-	// 	// 		deferred.reject(error);
-	// 	// 	});
-
-	// 	// //return ;
-
-	// 	//  the_promises.push(deferred.promise);
-	// })
-
-	// console.log(the_promises);
-	// return Q.all(the_promises);
-	
-	console.log('mongoose.connection : ' + mongoose.connection);
-console.log(mongoose.model);
-
-	var modelObj =  mongoose.model('Users');
-	var data = createJson(modelObj,5);
-	var tbl = new tblModel(data);
-	 
-	 console.log(data);
-
-
-
-	tbl.save(function(err,result,number){
-		if(err){
-			console.log(err);
-		}
-		console.log('result : ' + result);
-		console.log('number : ' + number);
+		var promise = insert.Save(tbl);
+        the_promises.push(promise);
+        tblID ++;
 	})
 
+	console.log(the_promises);
+	var d = Q.all(the_promises);
+	console.log(d);
 	helper.End('Migration Completed');
 };
 

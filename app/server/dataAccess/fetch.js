@@ -1,6 +1,6 @@
 'use-strict';
 
-var fetch = function(modelObj,condition,fields,options,done){
+var fetch = function(modelObj,condition,fields,options){
 	var query = modelObj.find(condition,fields,options);
 	var promise = query.exec();
 
@@ -13,8 +13,8 @@ var fetch = function(modelObj,condition,fields,options,done){
 };
 
 
-var fetchById = function(modelObj,id,fields,options,done){
-	var query = modelObj.findById(condition,fields,options);
+var fetchById = function(modelObj,id){
+	var query = modelObj.findById(id);
 	var promise = query.exec();
 
 	promise.then(function(result){
@@ -25,7 +25,20 @@ var fetchById = function(modelObj,id,fields,options,done){
 	});
 };
 
+var fetchAll = function(modelObj){
+	var query = modelObj.find({});
+	var promise = query.exec();
+
+	promise.then(function(result){
+		return result;
+	})
+	.catch(function(error){
+		return error;
+	});
+}
+
 module.exports = {
 	Fetch     : fetch,
-	FetchById : fetchById
+	FetchById : fetchById,
+	FetchAll  : fetchAll
 }

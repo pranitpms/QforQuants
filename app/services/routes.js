@@ -2,9 +2,9 @@
 
 var util    = require('util');
 var format  = util.format;
-module.exports = {
 
-	RouteUrl : function(name){
+
+var routeUrl = function(name){
 
 		var route = {
 			getAll : format('/api/%s',name),
@@ -12,12 +12,13 @@ module.exports = {
 			post   : format('/api/%s',name),
 			put    : format('/api/%s/:%s',name,name+'id'),
 			delete : format('/api/%s/:%s',name,name+'id'),
-			search : format('/api/%s/?options=',name)
+			search : format('/api/%s/search',name)
 		};
 		return route;
 	},
 
-
+module.exports = {
+	RouteUrl : routeUrl
 }
 
 
