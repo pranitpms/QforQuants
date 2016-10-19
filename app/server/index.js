@@ -1,17 +1,16 @@
 'use-strict';
 
-var AppPath  = require('rfr');
-AppPath.root = AppPath.root +'app'; 
+var rootPath = require('rfr');
+var AppPath  = rootPath('/app/appConfig');
+var conUtil  = AppPath('/server/connectionUtil');
+var conn     = AppPath('/server/connection');
+var server   = AppPath('/server/serverConfiguration');
+var up       = AppPath('/migrator/up/order');
+var down     = AppPath('/migrator/down/order');
+var API      = AppPath('/services/apiController');
 
-var conUtil = AppPath('/server/connectionUtil');
-var conn    = AppPath('/server/connection');
-var server  = AppPath('/server/serverConfiguration');
-var up      = AppPath('/migrator/up/order');
-var down    = AppPath('/migrator/down/order');
-var API     = AppPath('/services/apiController');
-
-var util    = require('util');
-var format  = util.format;
+var util     = require('util');
+var format   = util.format;
 
 var connectionString = conUtil.ConnectionString;
 
@@ -28,7 +27,6 @@ server.listen(5000,function(){
 });
 
 }
-
 
 process.on('uncaughtException', (err) => {
 	var msg;

@@ -1,12 +1,12 @@
 'use-strict';
 
-var AppPath  = require('rfr');
-
+var rootPath           = require('rfr');
+var AppPath            = rootPath('/app/appConfig');
 var dbExceptions       = AppPath('/exceptions/dbExceptions').DBException;
 var userException      = AppPath('/exceptions/userException').UserException;
 var entityException    = AppPath('/exceptions/entityException').EntityException;
 var exceptionType      = AppPath('/exceptions/exceptionEnum').Exceptions;
-var migratorException = AppPath('/exceptions/migratorException').MigrationException;
+var migratorException  = AppPath('/exceptions/migratorException').MigrationException;
 
 module.exports = {
 

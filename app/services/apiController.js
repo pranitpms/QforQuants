@@ -1,6 +1,7 @@
 'use-strict';
 
-var AppPath      = require('rfr');
+var rootPath = require('rfr');
+var AppPath  = rootPath('/app/appConfig');
 var service      = AppPath('/services/service');
 var CreateRoutes = AppPath('/services/baseRouter');
 var app          = AppPath('/server/serverConfiguration');

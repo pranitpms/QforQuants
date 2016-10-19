@@ -1,6 +1,7 @@
 'use-strict';
 
-var AppPath   = require('rfr');
+var rootPath  = require('rfr');
+var AppPath   = rootPath('/app/appConfig');
 var modelObj  = AppPath('/model/TBLModel');
 var Exception = AppPath('/exceptions/baseException').Exception;
 

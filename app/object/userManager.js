@@ -1,6 +1,7 @@
 'use-strict';
 
-var AppPath           = require('rfr');
+var rootPath          = require('rfr');
+var AppPath           = rootPath('/app/appConfig');
 var user              = AppPath('/model/userModel');
 var Manager           = AppPath('/server/dataAccess/entityManager');
 var Exception         = AppPath('/exceptions/baseException').Exception;

@@ -1,6 +1,7 @@
 'use-strict';
 
-var AppPath      = require('rfr');
+var rootPath     = require('rfr');
+var AppPath      = rootPath('/app/appConfig');
 var insert       = AppPath('/server/dataAccess/insert');
 var modelFactory = AppPath('/model/modelFactory');
 var helper       = AppPath('/migrator/migratorHelper');

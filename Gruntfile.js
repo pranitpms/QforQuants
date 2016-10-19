@@ -2,34 +2,34 @@
 
 module.exports = function(grunt){
 	
-	// var path     = require('path');
-	// var baseDirectory   = path.basename(__dirname);
-	// var packageJsonFile = __dirname + '/package.json';
- //    var htmlIndexFile   = __dirname + '/app/client/index.html';
-	// var applicationPath = 'app';
-console.log(__dirname + '/app/client/index.html');
+	var path      = require('path');
+	var rootPath  = require('rfr');
+    var htmlIndex = path.join(rootPath.root,'app/client/index.html');
+
+grunt.loadNpmTasks('grunt-wiredep');
 
 	grunt.initConfig({
 		wiredep:{
-			target:{
-				src: __dirname + 'app/client/index.html'
+			task:{
+				src: htmlIndex
 			}
-		},
-		watch: {
-		  files: ['bower_components/*', __dirname + 'app/client/index.html'],
-		  tasks: ['wiredep']
 		}
+		// },
+		// watch: {
+		//   files: ['bower_components/*', __dirname + 'app/client/index.html'],
+		//   tasks: ['wiredep']
+		// }
 	});
 
-	grunt.loadNpmTasks('grunt-wiredep');
-	grunt.loadNpmTasks('grunt-contrib-less');
-	grunt.loadNpmTasks('grunt-contrib-watch');
+	
+	// grunt.loadNpmTasks('grunt-contrib-less');
+	// grunt.loadNpmTasks('grunt-contrib-watch');
 
 
 	grunt.registerTask('wiredep', ['wiredep']);
-	grunt.registerTask('changes', ['watch']);
-//	grunt.registerTask('less'   , ['less']);
-	grunt.registerTask('default', ['wiredep','watch']);
+// 	grunt.registerTask('changes', ['watch']);
+// //	grunt.registerTask('less'   , ['less']);
+// 	grunt.registerTask('default', ['wiredep','watch']);
 
 
 }

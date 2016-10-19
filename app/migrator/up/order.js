@@ -1,7 +1,7 @@
 
-var AppPath  = require('rfr');
-
-var first    = AppPath('/migrator/up/insertintoTBL');
+var rootPath    = require('rfr');
+var AppPath     = rootPath('/app/appConfig');
+var first       = AppPath('/migrator/up/insertintoTBL');
 
 module.exports = {
 

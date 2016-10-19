@@ -3,7 +3,8 @@
 var express = require('express');
 var _       = require('lodash-node');
 
-var AppPath = require('rfr');
+var rootPath = require('rfr');
+var AppPath  = rootPath('/app/appConfig');
 var GETALL  = AppPath('/services/route/getAllRoute');
 var GET     = AppPath('/services/route/getRoute');
 var SEARCH  = AppPath('/services/route/searchRoute');

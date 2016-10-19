@@ -1,6 +1,7 @@
 'use-strict';
 
-var AppPath      = require('rfr');
+var rootPath = require('rfr');
+var AppPath  = rootPath('/app/appConfig');
 var Exception    = AppPath('/exceptions/baseException').Exception;
 var mongoose     = require('mongoose');
 mongoose.Promise = require('bluebird');

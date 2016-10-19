@@ -1,6 +1,7 @@
 'use-strict';
 
-var AppPath = require('rfr');
+var rootPath = require('rfr');
+var AppPath  = rootPath('/app/appConfig');
 var Fetch  = AppPath('/server/dataAccess/fetch');
 var q       = require("q");
 

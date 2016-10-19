@@ -1,6 +1,7 @@
 'use-strict';
 
-var AppPath = require('rfr');
+var rootPath = require('rfr');
+var AppPath  = rootPath('/app/appConfig');
 var routes  = AppPath('/services/routes');
 var _       = require('lodash-node');
 var factory = AppPath('/model/modelFactory');

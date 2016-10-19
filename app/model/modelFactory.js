@@ -1,6 +1,7 @@
 'use-strict';
 
-var AppPath       = require('rfr');
+var rootPath      = require('rfr');
+var AppPath       = rootPath('/app/appConfig');
 var userModel     = AppPath('/model/userModel');
 var roleModel     = AppPath('/model/userRoleModel');
 var questionModel = AppPath('/model/questionModel');
