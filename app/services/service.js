@@ -14,14 +14,14 @@ var routerArray = [
 	{route :'question',name : 'Questions'}
 ];
 
-var AppConfig = {
-	routeName : String,
-	routeUrl,
-	modelName : String
-};
+
 
 var initConfiguration = function(routeName,modelName){
-
+	var AppConfig = {
+		routeName : String,
+		routeUrl  : {},
+		modelName : String
+	};
 	AppConfig.routeName = routeName;
 	AppConfig.routeUrl  = routes.RouteUrl(routeName);
 	AppConfig.modelName = modelName;
@@ -32,7 +32,7 @@ var initConfiguration = function(routeName,modelName){
 };
 
 module.exports = {
-	InitConfiguration : initConfiguration
+	InitConfiguration : initConfiguration,
 	RouterArray       : routerArray
 };
 

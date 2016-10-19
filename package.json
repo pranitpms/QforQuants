@@ -25,7 +25,6 @@
     "grunt-wiredep": "^3.0.1",
     "lodash-node": "^3.10.2",
     "method-override": "^2.3.6",
-    "mongodb": "^2.2.10",
     "mongoose": "^4.6.1",
     "morgan": "^1.7.0",
     "q": "^1.4.1",

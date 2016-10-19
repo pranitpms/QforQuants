@@ -3,21 +3,27 @@
 var AppPath = require('rfr');
 var Put  = AppPath('/server/dataAccess/update');
 
-var PUT = function(response,request,model){
+var PUT = function(model){
+	return putMethod(model);
+}
 
-	var whereData = req.body.where;
-	var setData   = req.body.set;
+var putMethod = function(model){
+	return (function(response,request,model){
 
-	var modelObj = new model(request.body);
+		var whereData = req.body.where;
+		var setData   = req.body.set;
 
-	var promise = Put.Update(modelObj,whereData,setData);
+		var modelObj = new model(request.body);
 
-	promise.then(function(result)){
-		return result;
-	})
-	.catch(function(error){
-		return error;
-	})
+		var promise = Put.Update(modelObj,whereData,setData);
+
+		promise.then(function(result){
+			return result;
+		})
+		.catch(function(error){
+			return error;
+		})
+	});
 }
 
 

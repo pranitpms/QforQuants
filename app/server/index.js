@@ -19,14 +19,17 @@ var connection = conn.CreateConnection(connectionString);
 
 if(connection){
 
-up.Executes(); // run migrator.
-API.InitRouteConfig(); //initialize configuration.
+//up.Executes(); // run migrator.
+ //initialize configuration.
+API.InitRouteConfig();
 server.listen(5000,function(){
 	console.log('Server Connection succesfully..!!!\n');
 	console.log('listening on port 5000');
-})
+});
 
 }
+
+
 process.on('uncaughtException', (err) => {
 	var msg;
 	switch(err.errorCode){

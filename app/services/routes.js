@@ -15,7 +15,7 @@ var routeUrl = function(name){
 			search : format('/api/%s/search',name)
 		};
 		return route;
-	},
+	};
 
 module.exports = {
 	RouteUrl : routeUrl

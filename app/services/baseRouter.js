@@ -15,46 +15,48 @@ var routeTable  = [];
 
 var CreateRoutes = function(config){
 	_.forEach(config,function(obj){
-
+		var json = {
+			name   : String,
+			routes : {}
+		}
+		var route = null;
 		var model = obj.model;
 		var serviceUri = obj.routeUrl;
 		var routeName = obj.routeName;
 
-		var routes = create(routeName,model,serviceUri);
-
-		if(router){
-			var json = {
-				name   : '/' + routeName,
-				routes : routes
-			}
+		route = create(routeName,model,serviceUri);
+		if(route){
+			json.name   = '/' + routeName;
+			json.routes = route;
 			routeTable.push(json);
 		}
 	})
+
+	return routeTable;
 };
 
 var create = function(routeName,model,serviceUri){
-	var router  = express.Router();
 
+	var router = express.Router();
 	router.use(function timelog(req,res,next){
 		console.log('Logging for the route: ' + routeName);
 		console.log('Time : ', Date.now());
 		next();
 	})
 
-	router.get(serviceUri.getAll,GETALL(response,request,model));
+	router.get(serviceUri.getAll,GETALL(model));
 
-	router.get(serviceUri.get,GET(response,request,model));
+	router.get(serviceUri.get,GET(model,routeName+'id'));
 
-	router.get(serviceUri.get,SEARCH(response,request,model));
+	router.get(serviceUri.get,SEARCH(model));
 
-	router.post(serviceUri.post,POST(response,request,model));
+	router.post(serviceUri.post,POST(model));
 
-	router.put(serviceUri.put,PUT(response,request,model));
+	router.put(serviceUri.put,PUT(model));
 
-	router.delete(serviceUri.delete,DELETE(response,request,model));
+	router.delete(serviceUri.delete,DELETE(model));
 
 	return router;
-
-}
+};
 
 module.exports = CreateRoutes;

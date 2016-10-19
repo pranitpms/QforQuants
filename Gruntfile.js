@@ -1,27 +1,23 @@
 	'use-strict';
 
 module.exports = function(grunt){
-
-	var path = require('path');
-	var baseDirectory = path.basename(__dirname);
-	var packageJsonFile = 'package.json';
-	var htmlIndexFile   = 'app/index.html';
-	var applicationPath = 'app';
-
+	
+	// var path     = require('path');
+	// var baseDirectory   = path.basename(__dirname);
+	// var packageJsonFile = __dirname + '/package.json';
+ //    var htmlIndexFile   = __dirname + '/app/client/index.html';
+	// var applicationPath = 'app';
+console.log(__dirname + '/app/client/index.html');
 
 	grunt.initConfig({
 		wiredep:{
-			task:{
-				src:[htmlIndexFile]
-
+			target:{
+				src: __dirname + 'app/client/index.html'
 			}
 		},
 		watch: {
-		  files: ['bower_components/*',htmlIndexFile],
+		  files: ['bower_components/*', __dirname + 'app/client/index.html'],
 		  tasks: ['wiredep']
-		},
-		less:{
-			files:['/*.less']
 		}
 	});
 
@@ -32,7 +28,7 @@ module.exports = function(grunt){
 
 	grunt.registerTask('wiredep', ['wiredep']);
 	grunt.registerTask('changes', ['watch']);
-	grunt.registerTask('less'   , ['less']);
+//	grunt.registerTask('less'   , ['less']);
 	grunt.registerTask('default', ['wiredep','watch']);
 
 
