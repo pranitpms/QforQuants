@@ -14,9 +14,9 @@ var format   = util.format;
 
 var connectionString = conUtil.ConnectionString;
 
-var connection = conn.CreateConnection(connectionString);
+//var connection = conn.CreateConnection(connectionString);
 
-if(connection){
+//if(connection){
 
 //up.Executes(); // run migrator.
  //initialize configuration.
@@ -26,7 +26,7 @@ server.listen(5000,function(){
 	console.log('listening on port 5000');
 });
 
-}
+//}
 
 process.on('uncaughtException', (err) => {
 	var msg;
