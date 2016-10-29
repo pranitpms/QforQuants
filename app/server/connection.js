@@ -4,7 +4,7 @@ var rootPath = require('rfr');
 var AppPath  = rootPath('/app/appConfig');
 var Exception    = AppPath('/exceptions/baseException').Exception;
 var mongoose     = require('mongoose');
-mongoose.Promise = require('bluebird');
+mongoose.Promise = require('q').Promise;
 
 var opts = { 
 	server: { 

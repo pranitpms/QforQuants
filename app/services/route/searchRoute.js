@@ -2,26 +2,24 @@
 
 var rootPath = require('rfr');
 var AppPath  = rootPath('/app/appConfig');
-var Fetch  = AppPath('/server/dataAccess/fetch');
-var q       = require("q");
+var Fetch    = AppPath('/server/dataAccess/fetch');
+var q        = require("q");
 
 var SEARCH = function(modelObj){
 	return serchMethod(modelObj);
 };
 
 var serchMethod = function(modelObj){
-	return (function(response,request,modelObj){
-
-		var condition  = req.params[condition];
-		var fields     = req.params[fields];
-		var options    = req.params[options];
-		var modelObj   = new model();
+	return (function(request,response,next){
+		var condition  = request.query['condition'];
+		var fields     = request.query['fields'];
+		var options    = request.query['options'];
 
 		var promise = Fetch.Fetch(modelObj,condition,fields,options);
 		promise.then(function(result){
+			response.send(result);
 			return result;
-		}).
-		catch(function(error){
+		}).catch(function(error){
 			return error;
 		});
 	});

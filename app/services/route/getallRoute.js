@@ -3,7 +3,8 @@
 var rootPath = require('rfr');
 var AppPath  = rootPath('/app/appConfig');
 var Fetch  = AppPath('/server/dataAccess/fetch');
-var q       = require("q");
+//ar q       = require("q");
+//var mongoose = require('mongoose');
 
 
 var GETALL = function(model){
@@ -12,14 +13,13 @@ var GETALL = function(model){
 
 
 var getMethod = function(model){
-	return (function(response,request,model){
-		var modelObj = new model();
+	return (function(request,response,next){
+		
+		var promise = Fetch.FetchAll(model);
 
-		var promise = Fetch.FetchAll(modelObj);
 		promise.then(function(result){
-			return result;
-		}).
-		catch(function(error){
+			response.send(result);
+		}).catch(function(error){
 			return error;
 		});
 	});

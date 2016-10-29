@@ -1,15 +1,22 @@
 'use-strict';
 
+var Q = require("q");
+
 var deleteModel = function(modelObj,key,done){
+	
+	var deferred = Q.defer();
+
 	var query = modelObj.remove(key);
 	var promise = query.exec();
 
 	promise.then(function(result){
-		return result;
+		deferred.resolve(result);
 	})
 	.catch(function(error){
-		return error;
+		deferred.reject(error);
 	});
+
+	return deferred.promise;
 };
 
 module.exports = {

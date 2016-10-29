@@ -4,21 +4,20 @@ var rootPath = require('rfr');
 var AppPath  = rootPath('/app/appConfig');
 var Remove  = AppPath('/server/dataAccess/delete');
 
-var DELETE = function(model){
+var DELETE = function(modelObj){
 
-	return DeleteMethod(model);
+	return DeleteMethod(modelObj);
 }
 
-var DeleteMethod = function(model){
-	return (function(response,request,model){
+var DeleteMethod = function(modelObj){
+	return (function(request,response,next){
 
-		var key  = req.params[keyName];
-		var modelObj = new model();
+		var key  = request.params[keyName];
 
 		var promise = Remove.Delete(modelObj,key);
 
 		promise.then(function(result){
-			return result;
+			response.send(result);
 		})
 		.catch(function(error){
 			return error;

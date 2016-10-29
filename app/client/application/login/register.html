@@ -1,0 +1,46 @@
+ <div class="middle-box text-center loginscreen   animated fadeInDown">
+        <div>
+            <div>
+
+                <h1 class="logo-name">IQ</h1>
+
+            </div>
+            <h3>Register to IQ</h3>
+            <p>Create account to see it in action.</p>
+            <form class="m-t" role="form">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Name" ng-model="register.user.name" required="">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="UserName" ng-model="register.user.username" required="">
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Email" ng-model="register.user.email" required="">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Password" ng-model="register.user.password" required="">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Mobile" ng-model="register.user.mobile">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Education" ng-model="register.user.qualification">
+                </div>
+                <div class="form-group">
+                 <p class="input-group">
+                    <input type="text" class="form-control" uib-datepicker-popup="{{register.format}}" ng-model="register.user.dateOfBirth" is-open="register.opened" min-date="register.minDate" max-date="register.maxDate" datepicker-options="register.dateOptions" ng-required="true" close-text="Close" ng-change="register.onDateSelected()" placeholder="Date-of-Birth" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="register.open($event)" style="height: 34px;">
+                            <i class="fa fa-calendar"></i>
+                        </button> 
+                    </span>
+                </p>
+                </div>
+                
+                <button type="submit" class="btn btn-primary block full-width m-b" ng-click="register.onRegister()">Register</button>
+
+                <p class="text-muted text-center"><small>Already have an account?</small></p>
+                <a class="btn btn-sm btn-white btn-block" ui-sref="Login">Login</a>
+            </form>
+        </div>
+    </div>

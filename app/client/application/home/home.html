@@ -1,0 +1,76 @@
+<div id="wrapper">
+    <nav class="navbar-default navbar-static-side" role="navigation" style="">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element">
+                        <span>
+                            <img alt="image" class="img-circle" src="" />
+                        </span>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear">
+                                <span class="block m-t-xs">
+                                    <strong class="font-bold">David Williams</strong>
+                                </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span>
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                            <li><a ui-sref="Home.Profile">Profile</a></li>
+                            <li><a href="contacts.html">Contacts</a></li>
+                            <li><a href="mailbox.html">Mailbox</a></li>
+                            <li class="divider"></li>
+                            <li><a ui-sref="login">Logout</a></li>
+                        </ul>
+                    </div>
+                    <div class="logo-element">
+                        IQ+
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary" id="toggleButton" href="#">
+                    <i class="fa fa-bars"></i> </a>
+                    <form role="search" class="navbar-form-custom" action="../../Views/Home/search_results.html">
+                        <div class="form-group">
+                            <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                        </div>
+                    </form>
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li>
+                        <p class="navbar-text"><a ui-sref="#" class="navbar-link">QforQuants</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li ng-if="home.isActive">
+                        <p class="navbar-text navbar-right"><a class="navbar-link" ng-click="home.onLogout()">LogOut</a>
+                    </li>
+                    <li ng-if="!home.isActive">
+                        <p class="navbar-text navbar-right"><a ui-sref="Login" class="navbar-link">Login</a>
+                    </li>
+                    <li ng-if="!home.isActive">
+                        <p class="navbar-text navbar-right"><a ui-sref="Register" class="navbar-link">Sign-Up</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+            <div ui-view></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="footer fixed">
+                    <div class="pull-right">
+                        <strong>Copyright</strong> | Pranit Bardapurkar &copy; 2015-2016
+                    </div>
+                    <div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

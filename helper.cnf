@@ -1,0 +1,137 @@
+var route, routes = [];
+	server._router.stack.forEach(function(middleware){
+    if(middleware.route){ // routes registered directly on the app
+        routes.push(middleware.route);
+    } else if(middleware.name === 'router'){ // router middleware 
+        middleware.handle.stack.forEach(function(handler){
+            route = handler.route;
+            route && routes.push(route);
+        });
+    }
+});
+
+console.log(routes);
+
+
+
+//------------------------------------
+[ Route {
+    path: '/api/user',
+    stack: [ [Object] ],
+    methods: { get: true } },
+  Route {
+    path: '/api/user/:userid',
+    stack: [ [Object] ],
+    methods: { get: true } },
+  Route {
+    path: '/api/user/:userid',
+    stack: [ [Object] ],
+    methods: { get: true } },
+  Route {
+    path: '/api/user',
+    stack: [ [Object] ],
+    methods: { post: true } },
+  Route {
+    path: '/api/user/:userid',
+    stack: [ [Object] ],
+    methods: { put: true } },
+  Route {
+    path: '/api/user/:userid',
+    stack: [ [Object] ],
+    methods: { delete: true } },
+  Route {
+    path: '/api/userrole',
+    stack: [ [Object] ],
+    methods: { get: true } },
+  Route {
+    path: '/api/userrole/:userroleid',
+    stack: [ [Object] ],
+    methods: { get: true } },
+  Route {
+    path: '/api/userrole/:userroleid',
+    stack: [ [Object] ],
+    methods: { get: true } },
+  Route {
+    path: '/api/userrole',
+    stack: [ [Object] ],
+    methods: { post: true } },
+  Route {
+    path: '/api/userrole/:userroleid',
+    stack: [ [Object] ],
+    methods: { put: true } },
+  Route {
+    path: '/api/userrole/:userroleid',
+    stack: [ [Object] ],
+    methods: { delete: true } },
+  Route {
+    path: '/api/category',
+    stack: [ [Object] ],
+    methods: { get: true } },
+  Route {
+    path: '/api/category/:categoryid',
+    stack: [ [Object] ],
+    methods: { get: true } },
+  Route {
+    path: '/api/category/:categoryid',
+    stack: [ [Object] ],
+    methods: { get: true } },
+  Route {
+    path: '/api/category',
+    stack: [ [Object] ],
+    methods: { post: true } },
+  Route {
+    path: '/api/category/:categoryid',
+    stack: [ [Object] ],
+    methods: { put: true } },
+  Route {
+    path: '/api/category/:categoryid',
+    stack: [ [Object] ],
+    methods: { delete: true } },
+  Route {
+    path: '/api/reply',
+    stack: [ [Object] ],
+    methods: { get: true } },
+  Route {
+    path: '/api/reply/:replyid',
+    stack: [ [Object] ],
+    methods: { get: true } },
+  Route {
+    path: '/api/reply/:replyid',
+    stack: [ [Object] ],
+    methods: { get: true } },
+  Route {
+    path: '/api/reply',
+    stack: [ [Object] ],
+    methods: { post: true } },
+  Route {
+    path: '/api/reply/:replyid',
+    stack: [ [Object] ],
+    methods: { put: true } },
+  Route {
+    path: '/api/reply/:replyid',
+    stack: [ [Object] ],
+    methods: { delete: true } },
+  Route {
+    path: '/api/question',
+    stack: [ [Object] ],
+    methods: { get: true } },
+  Route {
+    path: '/api/question/:questionid',
+    stack: [ [Object] ],
+    methods: { get: true } },
+  Route {
+    path: '/api/question/:questionid',
+    stack: [ [Object] ],
+    methods: { get: true } },
+  Route {
+    path: '/api/question',
+    stack: [ [Object] ],
+    methods: { post: true } },
+  Route {
+    path: '/api/question/:questionid',
+    stack: [ [Object] ],
+    methods: { put: true } },
+  Route {
+    path: '/api/question/:questionid',
+    stack: [ [Object] ],
+    methods: { delete: true } } ]

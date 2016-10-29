@@ -12,7 +12,7 @@ var routeUrl = function(name){
 			post   : format('/api/%s',name),
 			put    : format('/api/%s/:%s',name,name+'id'),
 			delete : format('/api/%s/:%s',name,name+'id'),
-			search : format('/api/%s/search',name)
+			search : format('/api/%s',name)
 		};
 		return route;
 	};

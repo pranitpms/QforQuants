@@ -20,23 +20,23 @@ var CreateRoutes = function(config){
 			name   : String,
 			routes : {}
 		}
-		var route = null;
-		var model = obj.model;
+		var route      = null;
+		var model      = obj.model;
 		var serviceUri = obj.routeUrl;
-		var routeName = obj.routeName;
+		var routeName  = obj.routeName;
+		var primaryKey = obj.primaryKey;
 
-		route = create(routeName,model,serviceUri);
+		route = create(routeName,model,serviceUri,primaryKey);
 		if(route){
 			json.name   = '/' + routeName;
 			json.routes = route;
 			routeTable.push(json);
 		}
 	})
-
 	return routeTable;
 };
 
-var create = function(routeName,model,serviceUri){
+var create = function(routeName,model,serviceUri,primaryKey){
 
 	var router = express.Router();
 	router.use(function timelog(req,res,next){
@@ -47,9 +47,9 @@ var create = function(routeName,model,serviceUri){
 
 	router.get(serviceUri.getAll,GETALL(model));
 
-	router.get(serviceUri.get,GET(model,routeName+'id'));
+	router.get(serviceUri.get,GET(model,routeName+'id',primaryKey));
 
-	router.get(serviceUri.get,SEARCH(model));
+	router.get(serviceUri.search,SEARCH(model));
 
 	router.post(serviceUri.post,POST(model));
 

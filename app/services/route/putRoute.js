@@ -9,17 +9,17 @@ var PUT = function(model){
 }
 
 var putMethod = function(model){
-	return (function(response,request,model){
+	return (function(request,response,next){
 
-		var whereData = req.body.where;
-		var setData   = req.body.set;
+		var whereData = request.body.where;
+		var setData   = request.body.set;
 
 		var modelObj = new model(request.body);
 
 		var promise = Put.Update(modelObj,whereData,setData);
 
 		promise.then(function(result){
-			return result;
+			response.send(result);
 		})
 		.catch(function(error){
 			return error;

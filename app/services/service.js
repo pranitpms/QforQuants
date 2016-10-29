@@ -4,7 +4,8 @@ var rootPath = require('rfr');
 var AppPath  = rootPath('/app/appConfig');
 var routes  = AppPath('/services/routes');
 var _       = require('lodash-node');
-var factory = AppPath('/model/modelFactory');
+var factory  = AppPath('/model/modelFactory');
+
 
 
 var routerArray = [
@@ -19,17 +20,18 @@ var routerArray = [
 
 var initConfiguration = function(routeName,modelName){
 	var AppConfig = {
-		routeName : String,
-		routeUrl  : {},
-		modelName : String
+		routeName  : String,
+		routeUrl   : {},
+		modelName  : String,
+		model      : {},
+		primaryKey : String
 	};
-	AppConfig.routeName = routeName;
-	AppConfig.routeUrl  = routes.RouteUrl(routeName);
-	AppConfig.modelName = modelName;
-	AppConfig.model     = factory.GetModelByName(modelName);
-
-	return AppConfig;
-
+	AppConfig.routeName  = routeName;
+	AppConfig.routeUrl   = routes.RouteUrl(routeName);
+	AppConfig.modelName  = modelName;
+	AppConfig.model      = factory.GetModelByName(modelName);
+	AppConfig.primaryKey = new AppConfig.model().PrimaryKey;
+	return AppConfig;  
 };
 
 module.exports = {

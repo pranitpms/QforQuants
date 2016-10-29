@@ -14,19 +14,33 @@ var format   = util.format;
 
 var connectionString = conUtil.ConnectionString;
 
-//var connection = conn.CreateConnection(connectionString);
+var connection = conn.CreateConnection(connectionString);
 
-//if(connection){
+if(connection){
 
-//up.Executes(); // run migrator.
- //initialize configuration.
+////up.Executes(); //// run migrator.
+////initialize configuration.
 API.InitRouteConfig();
+
+// var route, routes = [];
+// 	server._router.stack.forEach(function(middleware){
+//     if(middleware.route){ // routes registered directly on the app
+//         routes.push(middleware.route);
+//     } else if(middleware.name === 'router'){ // router middleware 
+//         middleware.handle.stack.forEach(function(handler){
+//             route = handler.route;
+//             route && routes.push(route);
+//         });
+//     }
+// });
+
+// console.log(routes);
+
 server.listen(5000,function(){
 	console.log('Server Connection succesfully..!!!\n');
 	console.log('listening on port 5000');
-});
-
-//}
+	});
+}
 
 process.on('uncaughtException', (err) => {
 	var msg;

@@ -3,7 +3,7 @@
 var util          = require('util');
 
 var user          = encodeURIComponent('pranitpms');
-var password      = encodeURIComponent('Quants321');
+var password      = encodeURIComponent('E321TEST_TR');
 var authMechanism = 'DEFAULT';
 var authSource    = 'Quants';
 

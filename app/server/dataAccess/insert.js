@@ -8,9 +8,11 @@ var save = function(modelObj){
 
 	modelObj.save()
 		.then(function(result){
+			console.log(result);
 			deferred.resolve(result);
 		})
 		.catch(function(error){
+			console.log('error : ' + error);
 			deferred.reject(error);
 		});
 
