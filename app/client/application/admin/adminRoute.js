@@ -7,14 +7,14 @@
 				templateUrl  : 'app/admin/admin.html',
 				controller   : 'adminController',
 				controllerAs : 'admin',
-				authenticate : true,
+				authenticate : false,
 			})
 			.state('Admin.User',{
 				url          : '/users',
 				templateUrl  : '/app/users/user.html',
 				controller   : 'userController',
 				controllerAs : 'users' ,
-				authenticate : true,
+				authenticate : false,
 				resolve      : {
 					userList : function (userService){
 						return userService.GetAllUsers();

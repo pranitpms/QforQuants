@@ -7,10 +7,12 @@ var AppPath  = rootPath('/app/appConfig');
 var routes  = AppPath('/services/routes');
 var _       = require('lodash-node');
 var factory  = AppPath('/model/modelFactory');
+var extend = require('util')._extend;
 
 var fetch = function(modelObj,condition,fields,options){
 
 	var deferred = Q.defer();
+
 	var query = modelObj.find(condition,fields,options);
 	var promise = query.exec();
 

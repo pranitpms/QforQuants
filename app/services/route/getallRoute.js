@@ -16,7 +16,6 @@ var getMethod = function(model){
 	return (function(request,response,next){
 		
 		var promise = Fetch.FetchAll(model);
-
 		promise.then(function(result){
 			response.send(result);
 		}).catch(function(error){

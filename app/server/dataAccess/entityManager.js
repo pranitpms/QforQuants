@@ -10,7 +10,9 @@ var tableKeyGenerator = AppPath('/server/modelUtility/tableKyeGenerator');
 var Q = require("q");
 
 
-var save = function(modelObj,primaryKey){
+var save = function(modelObj){
+	
+	var primaryKey = modelObj.PrimaryKey;
 
 	var promise = tableKeyGenerator.GetNextId(primaryKey);
 
@@ -18,12 +20,12 @@ var save = function(modelObj,primaryKey){
 
 	promise.then(function(result){
 		console.log('val : ' + result.val);
-		console.log(modelObj);
+		console.log(modelObj[primaryKey]);
 		modelObj[primaryKey] = result.val;
 
-		insert.Save(modelObj).then(function(result){
-			deferred.resolve(result);
-		});
+		return insert.Save(modelObj);
+	}).then(function(result){
+		deferred.resolve(result);
 	}).catch(function(error){
 		deferred.reject(error);
 	});

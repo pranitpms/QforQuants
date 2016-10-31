@@ -7,6 +7,7 @@ var Schema = mongoose.Schema;
 var questionSchema = new Schema({
 	questionId : { type: Number, required: true, unique: true , index: true},
 	catagoryId : Number,
+	title      : String,
 	question   : String,
 	postDate   : Date,
 	userId     : Number,

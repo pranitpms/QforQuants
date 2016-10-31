@@ -6,14 +6,14 @@ var modelObj  = AppPath('/model/TBLModel');
 var Exception = AppPath('/exceptions/baseException').Exception;
 var Q = require("q");
 
-var getNextId = function(fieldName){
+var getNextId = function(field){
 
-	var query   = { fieldName  : fieldName };
+	var query   = { fieldName  : field };
 	var update  = { $inc : { val : 1 } };
 	var options = { new : true };
 
 	var deferred = Q.defer();
-console.log(query + update + options);
+
 	var query = modelObj.findOneAndUpdate(query,update,options);
 	var promise = query.exec();
 

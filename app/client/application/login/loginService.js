@@ -3,14 +3,12 @@
 	angular.module('QforQuants')
 		.factory('loginService',function($http,$q){
 
-			var vm = this;
-			var baseUrl = 'user/api/user';
+			var vm      = this;
+			var apiUri  = 'api/user'
+			var baseUrl = 'user/';
 
 			vm.createCondition = function(name,pass){
-				var con = {
-					userName : name,
-					password : pass
-				};
+					var con = 'username:' + name + ',password:' + pass ;
 				return con;
 			}
 
@@ -22,7 +20,7 @@
 				$http({
 					method : 'GET',
 					params : {condition : con},
-					url    : baseUrl
+					url    : baseUrl + 'search/' + apiUri
 				}).success(function(result){
 					deffered.resolve(result);
 				}).error(function(error){
@@ -40,7 +38,7 @@
 				$http({
 					method : 'POST',
 					data   : user,
-					url    : baseUrl
+					url    : baseUrl + apiUri
 				}).success(function(result){
 					deffered.resolve(result);
 				}).error(function(error){

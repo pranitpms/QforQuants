@@ -30,7 +30,6 @@ var initConfiguration = function(routeName,modelName){
 	AppConfig.routeUrl   = routes.RouteUrl(routeName);
 	AppConfig.modelName  = modelName;
 	AppConfig.model      = factory.GetModelByName(modelName);
-	AppConfig.primaryKey = new AppConfig.model().PrimaryKey;
 	return AppConfig;  
 };
 

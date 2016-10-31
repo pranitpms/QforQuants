@@ -24,9 +24,8 @@ var CreateRoutes = function(config){
 		var model      = obj.model;
 		var serviceUri = obj.routeUrl;
 		var routeName  = obj.routeName;
-		var primaryKey = obj.primaryKey;
 
-		route = create(routeName,model,serviceUri,primaryKey);
+		route = create(routeName,model,serviceUri);
 		if(route){
 			json.name   = '/' + routeName;
 			json.routes = route;
@@ -36,7 +35,7 @@ var CreateRoutes = function(config){
 	return routeTable;
 };
 
-var create = function(routeName,model,serviceUri,primaryKey){
+var create = function(routeName,model,serviceUri){
 
 	var router = express.Router();
 	router.use(function timelog(req,res,next){
@@ -47,7 +46,7 @@ var create = function(routeName,model,serviceUri,primaryKey){
 
 	router.get(serviceUri.getAll,GETALL(model));
 
-	router.get(serviceUri.get,GET(model,routeName+'id',primaryKey));
+	router.get(serviceUri.get,GET(model,routeName+'id'));
 
 	router.get(serviceUri.search,SEARCH(model));
 
