@@ -26,11 +26,15 @@ step 2 : run bower in your app directory.
 
   e.g yourDir/app> bower install.
   
-finaly step 3: start the server.
+step 3: start the Mongo service
   start the mongo db server in another cmd. using command 
     cmd> mongod
+  then create one database of any name.
+  
+  open the connetionUtil.js file and replace connection string with your new connection string.
+  test the connection string is working or not.
     
- then open another terminal go to your application directory. and run below command
+step 4 : open another terminal go to your application directory. and run below command
  
  e.g. yourDir/app/server> node index.js
   
