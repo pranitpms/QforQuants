@@ -4,7 +4,7 @@
 		.controller('adminController',function(){
 			var admin = this;
 
-
-			admin.isActive = true;
+			var elemen = angular.element($('#homeDiv'));
+			elemen[0].hidden =true;
 	})
 })();

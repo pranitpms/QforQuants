@@ -2,11 +2,11 @@
 
 var Q = require("q");
 
-var deleteModel = function(modelObj,key,done){
+var deleteModel = function(modelObj,id, options){
 	
 	var deferred = Q.defer();
-
-	var query = modelObj.remove(key);
+console.log('id : ' + id);
+	var query = modelObj.findByIdAndRemove(id);
 	var promise = query.exec();
 
 	promise.then(function(result){

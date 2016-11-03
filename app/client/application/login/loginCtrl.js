@@ -1,7 +1,7 @@
 (function(){
 
 	angular.module('QforQuants')
-		.controller('loginController',function($state,loginService,sessionService){
+		.controller('loginController',function($state,loginService,sessionService,toastr){
 
 			var login = this;
 			login.username = '';
@@ -15,7 +15,8 @@
 			login.onAuthenticate = function(){
 
 				if(!login.password && !login.username){
-					alert('valuies required!!!');
+					toastr.error('Username and Password is required.');
+					return;
 				}
 
 				var promise = loginService.AuthenticateUser(login.username,login.password);
@@ -27,17 +28,19 @@
 		 				sessionService.UserId          = result[0].userID;
 
 		 				var role = result[0].role;
-		 				if(role == 1){
-		 					$state.go('Home');
+		 				if(role == 0){
+		 					sessionService.IsAdmin = true;
 		 				}
 		 				else{
-		 					$state.go('Admin');
+		 					sessionService.IsAdmin = false;
 		 				}
+		 				$state.go('Home');
 					}
 					else{
-						alert('user not found!!!');
+						toastr.error('user not found!!!');
 					}
 				}).catch(function(error){
+					toastr.error(error);
 					console.log(error);
 				});
 			}

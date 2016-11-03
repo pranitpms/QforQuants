@@ -1,0 +1,67 @@
+ <div class="row">
+<div class="col-lg-12">
+	<div class="ibox float-e-margins">
+		<div class="ibox-title">
+            <h5>Question Category</h5>
+        </div>
+        <div class="ibox-content">
+        	<table class="table table-bordered table-hover">
+        		<thead>
+        			<tr>
+	        			<th>
+	        				<div class="btn-toolbar">
+	                            <i class="btn btn-default fa fa-plus-square" ng-click="category.toggleAddMode()"></i>
+	                        </div>
+	        			</th>
+	        			<th ng-repeat="column in category.config.columns" ng-show="column.isVisible">
+	        				{{column.label}}
+	        			</th>
+	        			<th></th>
+        			</tr>
+        		</thead>
+        		<tbody>
+        			<tr ng-show="category.addMode">
+        				<td></td>
+        				<td ng-repeat="column in category.config.columns" ng-show="column.isVisible">
+        					<input type="column.dataType" name="column.fieldName" ng-model="category.instance[column.fieldName]">
+        				</td>
+        				<td>
+        					<div class="btn-toolbar">
+                                <div class="btn-group">
+                                <i class="btn btn-default fa fa-floppy-o" ng-click="category.addObject();category.toggleAddMode()"></i>
+                                <i class="btn btn-default fa fa-trash" ng-click="category.toggleAddMode()"></i>
+                                </div>
+                            </div>
+        				</td>
+        			</tr>
+        			<tr ng-repeat="data in category.dataList">
+        				<td style="width: 1%;">
+                                {{ $index+1 }}
+                        </td>
+                        <td ng-repeat="column in category.config.columns" ng-show="column.isVisible" ng-switch on="data.editMode">
+                        	<div ng-switch-default>
+                        		<span>{{data[column.fieldName]}}</span>
+                        	</div>
+                        	<div ng-switch-when="true">
+                        		<input type="column.dataType" name="column.fieldName" model-change-blur ng-model="data[column.fieldName]">
+                        	</div>
+                        </td>
+                        <td>
+                        	<div class="btn-toolbar" ng-switch on="data.editMode">
+                        		<div ng-switch-when="true" class="btn-group">
+                        			<i class="btn btn-default fa fa-floppy-o" ng-click="category.updateObject(data);category.toggleEditMode(data);"></i>
+                                    <i class="btn btn-default fa fa-times" ng-click="category.toggleEditMode(data)"></i>
+                        		</div>
+                        		<div  ng-switch-default class="btn-group">
+                        			<i class="btn btn-default fa fa-pencil" ng-click="category.toggleEditMode(data)"></i>
+                                    <i class="btn btn-default fa fa-trash" ng-click="category.deleteObject(data)"></i>
+                        		</div>
+                        	</div>
+                        </td>
+        			</tr>
+        		</tbody>
+        	</table>
+        </div>
+	</div>
+</div>
+</div>

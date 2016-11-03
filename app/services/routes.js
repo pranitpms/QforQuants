@@ -12,7 +12,8 @@ var routeUrl = function(name){
 			post   : format('/api/%s',name),
 			put    : format('/api/%s/:%s',name,name+'id'),
 			delete : format('/api/%s/:%s',name,name+'id'),
-			search : format('/search/api/%s',name)
+			search : format('/search/api/%s',name),
+			count  : formate('/api/%s/count',name)
 		};
 		return route;
 	};

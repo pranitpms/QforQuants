@@ -1,0 +1,67 @@
+ <div class="row">
+<div class="col-lg-12">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <h5>User Roles</h5>
+        </div>
+        <div class="ibox-content">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            <div class="btn-toolbar">
+                                <i class="btn btn-default fa fa-plus-square" ng-click="role.toggleAddMode()"></i>
+                            </div>
+                        </th>
+                        <th ng-repeat="column in role.config.columns" ng-show="column.isVisible">
+                            {{column.label}}
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-show="role.addMode">
+                        <td></td>
+                        <td ng-repeat="column in role.config.columns" ng-show="column.isVisible">
+                            <input type="column.dataType" name="column.fieldName" ng-model="role.instance[column.fieldName]">
+                        </td>
+                        <td>
+                            <div class="btn-toolbar">
+                                <div class="btn-group">
+                                <i class="btn btn-default fa fa-floppy-o" ng-click="role.addObject();role.toggleAddMode()"></i>
+                                <i class="btn btn-default fa fa-trash" ng-click="role.toggleAddMode()"></i>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr ng-repeat="data in role.dataList">
+                        <td style="width: 1%;">
+                                {{ $index+1 }}
+                        </td>
+                        <td ng-repeat="column in role.config.columns" ng-show="column.isVisible" ng-switch on="data.editMode">
+                            <div ng-switch-default>
+                                <span>{{data[column.fieldName]}}</span>
+                            </div>
+                            <div ng-switch-when="true">
+                                <input type="column.dataType" name="column.fieldName" model-change-blur ng-model="data[column.fieldName]">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="btn-toolbar" ng-switch on="data.editMode">
+                                <div ng-switch-when="true" class="btn-group">
+                                    <i class="btn btn-default fa fa-floppy-o" ng-click="role.updateObject(data);role.toggleEditMode(data);"></i>
+                                    <i class="btn btn-default fa fa-times" ng-click="role.toggleEditMode(data)"></i>
+                                </div>
+                                <div  ng-switch-default class="btn-group">
+                                    <i class="btn btn-default fa fa-pencil" ng-click="role.toggleEditMode(data)"></i>
+                                    <i class="btn btn-default fa fa-trash" ng-click="role.deleteObject(data)"></i>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>

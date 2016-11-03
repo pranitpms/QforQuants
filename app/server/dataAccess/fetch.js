@@ -82,11 +82,29 @@ var fetchAll = function(modelObj){
 	});
 
 	return deferred.promise;
-}
+};
+
+var getCount = function(modelObj,condition){
+
+	var deferred = Q.defer();
+
+	var query = modelObj.count(condition);
+	var promise = query.exec();
+
+	promise.then(function(result){
+		deferred.resolve(result);
+	})
+	.catch(function(error){
+		deferred.reject(error);
+	});
+
+	return deferred.promise;
+};
 
 module.exports = {
-	Fetch     : fetch,
+	Fetch      : fetch,
 	FetchByUId : fetchByUId,
-	FetchById : fetchById,
-	FetchAll  : fetchAll
+	FetchById  : fetchById,
+	FetchAll   : fetchAll,
+	GetCount   : getCount
 }

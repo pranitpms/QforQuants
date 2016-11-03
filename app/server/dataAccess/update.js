@@ -2,10 +2,10 @@
 
 var Q = require("q");
 
-var update = function(modelObj,whereData,setData){
+var update = function(modelObj,id, update, options){
 	var deferred = Q.defer();
 
-	var query = modelObj.update(whereData,setData);
+	var query = modelObj.findByIdAndUpdate(id, update, options);
 	var promise = query.exec();
 
 	promise.then(function(result){

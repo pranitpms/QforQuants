@@ -29,7 +29,8 @@
     "angular-ui-select": "~0.19.4",
     "ngstorage": "^0.3.11",
     "angular-cache": "^4.6.0",
-    "moment": "^2.15.2"
+    "moment": "^2.15.2",
+    "angular-toastr": "^2.1.1"
   },
   "devDependencies": {
     "jasmine-core": "jasmine#~2.5.2",

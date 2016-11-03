@@ -8,6 +8,7 @@
 			data.userId = '';
 			data.user   = '';
 			data.isAuthenticated = '';
+			data.isAdmin = '';
 
 			data.cacheName = 'userCache';
 			data.cache = null;
@@ -15,7 +16,8 @@
 			data.$storage = $sessionStorage.$default({
 				userId :'',
 				user   :'',
-				isAuthenticated : ''
+				isAuthenticated : '',
+				isAdmin : ''
 			});
 
 			Object.defineProperties(this,{
@@ -54,6 +56,18 @@
 						data.isAuthenticated = val;
 						data.store('isAuthenticated',val);
 					}
+				},
+				IsAdmin : {
+					get: function(){
+						if(data.isAdmin){
+							return data.isAdmin;
+						}
+						return data.retrive('isAdmin');
+					},
+					set : function(val){
+						data.isAdmin = val;
+						data.store('isAdmin',val);
+					}
 				}
 			});
 
@@ -88,6 +102,7 @@
 				data.userId = '';
 				data.user   = '';
 				data.isAuthenticated = '';
+				data.isAdmin = '';
 			};
 
 		});

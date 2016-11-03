@@ -3,33 +3,29 @@
 var rootPath = require('rfr');
 var AppPath  = rootPath('/app/appConfig');
 var Fetch    = AppPath('/server/dataAccess/fetch');
-var q        = require("q");
-var _       = require('lodash-node');
 
-var SEARCH = function(modelObj){
-	return serchMethod(modelObj);
+var COUNT = function(model){
+	return getCount(model);
 };
 
-var serchMethod = function(modelObj){
+
+var getCount = function(model){
 	return (function(request,response,next){
 		var condition  = buildCondition(request.query['condition']);
-		var fields     = request.query['fields'] || null;
-		var options    = request.query['options'] || null;
+		var promise = Fetch.GetCount(model,condition);
 
-		var promise = Fetch.Fetch(modelObj,condition,fields,options);
 		promise.then(function(result){
+			console.log(result);
 			response.send(result);
-			return result;
 		}).catch(function(error){
 			return error;
 		});
 	});
-}
-
+};
 
 var buildCondition = function(condition){
 	if(!condition) return null;
-
+	
 	var arr = condition.split(",");
 	var c = {};
 	_.forEach(arr,function(token){
@@ -40,6 +36,6 @@ var buildCondition = function(condition){
 	})
 
 	return c;
-};
+}
 
-module.exports = SEARCH;
+module.exports = COUNT;

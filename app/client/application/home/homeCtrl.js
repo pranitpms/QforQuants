@@ -4,14 +4,16 @@
 		.controller('homeController',function(sessionService,$state){
 			
 			var init = function(){
+				
 				$state.go('Home.Forum');
 			};
 			
 			var home = this;
-
 			home.isAuthenticated = home.isActive = sessionService.IsAuthenticated || false ;
 			home.user            = sessionService.User;
 			home.userId          = sessionService.UserId;
+			home.isAdmin         = sessionService.IsAdmin;
+
 			init();
 
 			home.onLogout = function(){

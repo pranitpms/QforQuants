@@ -5,12 +5,13 @@ var _       = require('lodash-node');
 
 var rootPath = require('rfr');
 var AppPath  = rootPath('/app/appConfig');
-var GETALL  = AppPath('/services/route/getAllRoute');
-var GET     = AppPath('/services/route/getRoute');
-var SEARCH  = AppPath('/services/route/searchRoute');
-var POST    = AppPath('/services/route/postRoute');
-var PUT     = AppPath('/services/route/putRoute');
-var DELETE  = AppPath('/services/route/deleteRoute');
+var GETALL   = AppPath('/services/route/getAllRoute');
+var GET      = AppPath('/services/route/getRoute');
+var SEARCH   = AppPath('/services/route/searchRoute');
+var POST     = AppPath('/services/route/postRoute');
+var PUT      = AppPath('/services/route/putRoute');
+var DELETE   = AppPath('/services/route/deleteRoute');
+var COUNT    = AppPath('/services/route/countRoute');
 
 var routeTable  = [];
 
@@ -44,17 +45,21 @@ var create = function(routeName,model,serviceUri){
 		next();
 	})
 
+	var keyName = routeName+'id';
+
 	router.get(serviceUri.getAll,GETALL(model));
 
-	router.get(serviceUri.get,GET(model,routeName+'id'));
+	router.get(serviceUri.get,GET(model,keyName));
 
 	router.get(serviceUri.search,SEARCH(model));
 
 	router.post(serviceUri.post,POST(model));
 
-	router.put(serviceUri.put,PUT(model));
+	router.put(serviceUri.put,PUT(model,keyName));
 
-	router.delete(serviceUri.delete,DELETE(model));
+	router.delete(serviceUri.delete,DELETE(model,keyName));
+
+	router.get(serviceUri.count,COUNT(model));
 
 	return router;
 };

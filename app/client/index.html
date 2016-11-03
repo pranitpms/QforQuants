@@ -2,10 +2,11 @@
 	<head>
 	<link rel="stylesheet" type="text/css" href="bower_components/angular-ui-select/dist/select.min.css">
 	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/angular-toastr/dist/angular-toastr.css">
 	<link rel="stylesheet" type="text/css" href="style/style.css">
     <link rel="stylesheet" type="text/css" href="fonts/css/font-awesome.min.css">
 	</head>
-	<body class="fixed-nav pace-done" ng-class="{'mini-navbar': !home.admin.isActive}">
+	<body class="fixed-nav pace-done mini-navbar">
    <div id="wrapper">
     <nav class="navbar-default navbar-static-side" role="navigation" style="">
         <div class="sidebar-collapse">
@@ -15,51 +16,22 @@
                         IQ+
                     </div>
                 </li>
-                <li ng-show="home.admin.isActive">
-                  <a ui-sref="Admin"><i class="fa fa-tachometer"></i> <span class="nav-label">Dashboard</span></a>
-                </li>
-                <li ng-show="home.admin.isActive">
-                    <a ui-sref="Admin.User"><i class="fa fa-user"></i> <span class="nav-label">User</span></a>
-                </li>
-                 <li ng-show="home.admin.isActive">
-                    <a ui-sref="Admin.Category"><i class="fa fa-user"></i> <span class="nav-label">Category</span></a>
-                </li>
-                 <li ng-show="home.admin.isActive">
-                    <a ui-sref="Admin.Role"><i class="fa fa-user"></i> <span class="nav-label">User Role</span></a>
-                </li>
             </ul>
         </div>
     </nav>
     <div id="page-wrapper" class="gray-bg" style="min-height: 100%;">
-       <div class="row border-bottom">
-            <nav class="navbar white-bg navbar-fixed-top" role="navigation" style="margin-bottom: 0;height: 58px;">
-                <div class="navbar-header">
-                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary" id="toggleButton" href="#">
-                    <i class="fa fa-bars"></i> </a>
-                    <form role="search" class="navbar-form-custom" action="../../Views/Home/search_results.html">
-                        <div class="form-group">
-                            <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
-                        </div>
-                    </form>
-                </div>
-                <ul class="nav navbar-top-links navbar-right">
-                     <li>
-                        <a ui-sref="Home.Forum" class="navbar-link">QforQuants</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li ng-if="home.isActive">
-                        <a class="navbar-link" ng-click="home.onLogout()">LogOut</a>
-                    </li>
-                    <li ng-if="!home.isActive">
-                        <a ui-sref="Login" class="navbar-link">Login</a>
-                    </li>
-                    <li ng-if="!home.isActive">
-                        <a ui-sref="Register" class="navbar-link">Sign-Up</a>
-                    </li>
-                </ul>
-            </nav>
-       </div> 
        <div class="row">
+       <div class="sk-spinner sk-spinner-cube-grid" id="spinner" style="position:fixed;top:50%; left: 50%; display: none">
+            <div class="sk-cube"></div>
+            <div class="sk-cube"></div>
+            <div class="sk-cube"></div>
+            <div class="sk-cube"></div>
+            <div class="sk-cube"></div>
+            <div class="sk-cube"></div>
+            <div class="sk-cube"></div>
+            <div class="sk-cube"></div>
+            <div class="sk-cube"></div>
+        </div>
           <div ui-view></div>
        </div>
        <div class="footer fixed">
@@ -69,9 +41,9 @@
          <div>
          </div>
        </div>
-       </div>
     </div>
-</div>
+    </div>
+
 
 
 	<!-- bower:js -->
@@ -92,6 +64,7 @@
     <script type="text/javascript" src="bower_components/ngstorage/ngStorage.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-cache/dist/angular-cache.min.js"></script>
     <script type="text/javascript" src="bower_components/moment/moment.js"></script>
+    <script type="text/javascript" src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
       	<!-- endbower -->
 
     <!--Application -->
@@ -111,14 +84,21 @@
 
     <script type="text/javascript" src="app/admin/adminCtrl.js"></script>
     <script type="text/javascript" src="app/admin/adminRoute.js"></script>
-
-    <script type="text/javascript" src="app/users/userCtrl.js"></script>
-    <script type="text/javascript" src="app/users/userRoute.js"></script>
+    <script type="text/javascript" src="app/admin/category/categoryCtrl.js"></script>
+     <script type="text/javascript" src="app/admin/category/categoryService.js"></script>
+    <script type="text/javascript" src="app/admin/users/userCtrl.js"></script>
+    <script type="text/javascript" src="app/admin/userRole/userRoleCtrl.js"></script>
+    <script type="text/javascript" src="app/admin/userRole/userRoleService.js"></script>
 
     <script type="text/javascript" src="app/common/userService.js"></script>
     <script type="text/javascript" src="app/common/sessionService.js"></script>
 
     <script type="text/javascript" src="app/forms/user.form.config.js"></script>
+    <script type="text/javascript" src="app/forms/category.form.config.js"></script>
+    <script type="text/javascript" src="app/forms/userRole.form.config.js"></script>
+
+    <script type="text/javascript" src="app/config/toastrConfig.js"></script>
+    <script type="text/javascript" src="app/config/spinnerConfig.js"></script>
     <!-- End Applications -->
 	</body>
 </html>
