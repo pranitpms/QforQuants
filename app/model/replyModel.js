@@ -9,6 +9,7 @@ var replySchema = new Schema({
 	reply      : String,
 	questionId : Number,
 	userId     : Number,
+	_user      : [{ type: Schema.Types.ObjectId, ref: 'Users' }],
 	rate       : Number,
 	lastModify : Date
 },

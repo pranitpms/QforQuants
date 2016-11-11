@@ -3,11 +3,11 @@
 	angular.module('QforQuants')
 		.config(function($stateProvider){
 			$stateProvider.state('Home.Question',{
-				url          : '/question',
+				url          : 'question',
 				templateUrl  : 'app/question/question.html',
 				controller   : 'questionController',
 				controllerAs : 'question',
-				authenticate : false
+				authenticate : true
 			});
 		});
 })();

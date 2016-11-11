@@ -2,13 +2,15 @@
 
 	angular.module('QforQuants')
 		.controller('homeController',function(sessionService,$state){
-			
+			var home = this;
+
 			var init = function(){
-				
-				$state.go('Home.Forum');
+				if($state.is('Home')){
+					$state.go('Home.Forum');
+				}
 			};
 			
-			var home = this;
+			
 			home.isAuthenticated = home.isActive = sessionService.IsAuthenticated || false ;
 			home.user            = sessionService.User;
 			home.userId          = sessionService.UserId;
@@ -19,11 +21,15 @@
 			home.onLogout = function(){
 				home.isActive = !home.isActive;
 				sessionService.ClearStorage();
+				$state.go('Home',{}, {reload: true});
 			};
 
 			home.onAskButtonClick = function(){
-				$state.go('Question');
+				$state.go('Home.Question');
 			};
+			home.onQuestionClick = function(){
+				$state.go('Home',{}, {reload: true});
+			}
 		});
 })();
 

@@ -1,14 +1,7 @@
 (function(){
 
 		angular.module('QforQuants')
-		.controller('questionController',function($state){
+			.controller('questionController',function(){
 			var question = this;
-
-
-			question.onProceedClick = function(){
-				$state.go('Query');
-			}
-
-
 		});
 })();

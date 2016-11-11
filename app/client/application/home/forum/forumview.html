@@ -1,23 +1,77 @@
-<div class="ibox-content forum-post-container">
-	<div class="forum-post-info">
-		<h4><span class="text-navy"><i class="fa fa-globe"></i> General discussion</span> - Announcements - <span class="text-muted">Free talks</span></h4>
-	</div>
-	<div class="media">
-                        <a class="forum-avatar" href="#">
-                            <img src="img/a1.jpg" class="img-circle" alt="image">
-                            <div class="author-info">
-                                <strong>Posts:</strong> 542<br>
-                                <strong>Joined:</strong> April 11.2015<br>
+<div class="col-lg-10 col-lg-offset-1">
+    <div class="ibox">
+        <div class="ibox-content">
+            <div class="pull-right">
+                <button class="btn btn-white btn-xs" type="button">{{forumview.category}}</button>
+            </div>
+            <div class="text-center article-title">
+            <span class="text-muted"><i class="fa fa-clock-o"></i> {{forumview.questionDetails.postDate}}</span>
+                <h1>
+                    {{forumview.questionDetails.title}}
+                </h1>
+            </div>
+            <p >
+                <div ng-bind-html="forumview.questionDetails.question">
+                    
+                </div>
+            </p>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                <!-- Space for adding Tags later -->
+                       <!--  <h5>Tags:</h5>
+                        <button class="btn btn-primary btn-xs" type="button">Model</button>
+                        <button class="btn btn-white btn-xs" type="button">Publishing</button> -->
+                </div>
+                <div class="col-md-6">
+                    <!-- <div class="small text-right">
+                        <h5>Stats:</h5>
+                        <div> <i class="fa fa-comments-o"> </i> 56 comments </div>
+                        <i class="fa fa-eye"> </i> 144 views
+                    </div> -->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Comments:</h2>
+                        <div class="social-feed-box" ng-repeat="repl in forumview.replies">
+                            <div class="social-avatar">
+                                <a class="pull-left">
+                                    <img src="" />
+                                    <!-- {{repl._user[0].name.trim().substring(0,1)}} -->
+                                </a>
+                                <div class="media-body">
+                                    <h3 class="font-bold">{{repl._user[0].name}}</h3>
+                                    <small class="text-muted">{{repl.lastModify}}</small>
+                                   <!-- Today 4:21 pm - 12.06.2014  -->
+                                </div> 
                             </div>
-                        </a>
-                        <div class="media-body">
-                            <h4 class="media-heading">The standard chunk of Lorem Ipsum</h4>
-                            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
-                            <br><br>
-                            Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-                            <br><br>
-                            - Mike Smith
-                            CEO, Zender Inc.
+                            <div class="social-body">
+                                <p>
+                                     <div ng-bind-html="repl.reply"></div>
+                                </p>
+                            </div>
                         </div>
+                </div>
+            </div>
+            <hr>
+              <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Answere</label>
+                    <div class="col-sm-10">
+                        <trix-editor angular-trix ng-model="forumview.model.reply" class="trix-content"></trix-editor>
                     </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <div class="col-sm-4 col-sm-offset-2">
+                        <button class="btn btn-white" type="reset">Cancel</button>
+                        <button class="btn btn-primary" type="submit" ng-click="forumview.onClickSave()">Save</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
 </div>

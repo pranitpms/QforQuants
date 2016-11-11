@@ -1,78 +1,55 @@
  <div class="ibox-content forum-container">
-        <div class="forum-title">
-            <div class="pull-right forum-desc">
-                <samll>Total posts: 320,800</samll>
-            </div>
-            <h3>All Questions</h3>
+    <div class="forum-title">
+        <div class="pull-right forum-desc">
+            <samll>Total posts: {{forum.count}}</samll>
         </div>
-        <div class="forum-item active">
-                                <div class="row">
-                                    <div class="col-md-9">
-                                        <div class="forum-icon">
-                                            <i class="fa fa-shield"></i>
-                                        </div>
-                                        <a href="forum_post.html" class="forum-item-title">General Discussion</a>
-                                        <div class="forum-sub-title">Talk about sports, entertainment, music, movies, your favorite color, talk about enything.</div>
-                                    </div>
-                                    <div class="col-md-1 forum-info">
-                                        <span class="views-number">
-                                            1216
-                                        </span>
-                                        <div>
-                                            <small>Views</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-1 forum-info">
-                                        <span class="views-number">
-                                            368
-                                        </span>
-                                        <div>
-                                            <small>Topics</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-1 forum-info">
-                                        <span class="views-number">
-                                            140
-                                        </span>
-                                        <div>
-                                            <small>Posts</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="forum-item">
-                                <div class="row">
-                                    <div class="col-md-9">
-                                        <div class="forum-icon">
-                                            <i class="fa fa-bolt"></i>
-                                        </div>
-                                        <a href="forum_post.html" class="forum-item-title">Introductions</a>
-                                        <div class="forum-sub-title">New to the community? Please stop by, say hi and tell us a bit about yourself. </div>
-                                    </div>
-                                    <div class="col-md-1 forum-info">
-                                        <span class="views-number">
-                                            890
-                                        </span>
-                                        <div>
-                                            <small>Views</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-1 forum-info">
-                                        <span class="views-number">
-                                            120
-                                        </span>
-                                        <div>
-                                            <small>Topics</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-1 forum-info">
-                                        <span class="views-number">
-                                            154
-                                        </span>
-                                        <div>
-                                            <small>Posts</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+        <h3>All Questions</h3>
     </div>
+    <div class="forum-item active" ng-repeat="question in forum.questions">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="forum-icon">
+                    <i class="fa fa-bolt"></i>
+                </div>
+                <a ui-sref="Home.ForumView({questionId : question.questionId})" class="forum-item-title">{{question.title}}</a>
+                <div class="forum-sub-title">
+                    <div ng-bind-html="question.question| limitTo: 500"></div>
+                    <!-- <div class="trix-content"> {{question.question}}</div> -->
+                </div>
+            </div>
+            <div class="col-md-1 forum-info">
+                <span class="views-number">
+                    {{question.rate}}
+                </span>
+                <div>
+                    <small>Rating</small>
+                </div>
+            </div>
+            <!-- <div class="col-md-1 forum-info">
+                <span class="views-number">
+                    368
+                </span>
+                <div>
+                    <small>Topics</small>
+                </div>
+            </div>
+            <div class="col-md-1 forum-info">
+                <span class="views-number">
+                    140
+                </span>
+                <div>
+                    <small>Posts</small>
+                </div> -->
+            </div>
+        </div>
+         <div class="row pull-right">
+        <div class="btn-group" ng-if="forum.count != 0">
+            <button type="button" class="btn btn-white" ng-click="forum.onClickNextButton()"><i class="fa fa-chevron-left"></i></button>
+            <button class="btn btn-white" ng-repeat="page in forum.count" ng-class="{active : page == forum.currentPage}" ng-click="forum.onClickPageButton(page)">{{page}}</button>
+            <button type="button" class="btn btn-white" ng-click="forum.onClickPrevButton()"><i class="fa fa-chevron-right"></i> </button>
+        </div>
+    </div>
+    </div>
+   
+ </div>
+

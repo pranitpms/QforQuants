@@ -18,6 +18,7 @@ var loadStaticResource = function(app){
 	app.use(express.static(path.join(applicationPath,'users')));
 
 	app.use('/style',express.static(path.join(AppPath.root, 'client','contents')));
+	app.use('/script',express.static(path.join(AppPath.root, 'client','script')));
 	app.use('/fonts',express.static(path.join(AppPath.root, 'client','font-awesome')));
 	app.use('/app',express.static(applicationPath));
 	app.use('/bower_components',express.static(path.join(rootPath.root, 'bower_components')));

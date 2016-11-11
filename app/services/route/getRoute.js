@@ -4,7 +4,9 @@ var rootPath = require('rfr');
 var AppPath  = rootPath('/app/appConfig');
 var Fetch  = AppPath('/server/dataAccess/fetch');
 
-var GET = function(model,keyName,primaryKey){
+var GET = function(model,keyName){
+
+	var primaryKey = new model().PrimaryKey;
 	return getMethod(model,keyName,primaryKey);
 };
 
@@ -16,7 +18,6 @@ var getMethod = function(model,keyName,primaryKey){
 		var promise = Fetch.FetchById(model,key,primaryKey);
 
 		promise.then(function(result){
-			console.log(result);
 			response.send(result);
 		}).catch(function(error){
 			return error;

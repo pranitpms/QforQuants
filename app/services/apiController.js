@@ -1,11 +1,12 @@
 'use-strict';
 
-var rootPath = require('rfr');
-var AppPath  = rootPath('/app/appConfig');
-var service      = AppPath('/services/service');
-var CreateRoutes = AppPath('/services/baseRouter');
-var app          = AppPath('/server/serverConfiguration');
-var _            = require('lodash-node');
+var rootPath      = require('rfr');
+var AppPath       = rootPath('/app/appConfig');
+var service       = AppPath('/services/service');
+var CreateRoutes  = AppPath('/services/baseRouter');
+var app           = AppPath('/server/serverConfiguration');
+var _             = require('lodash-node');
+var CustomConfig  = AppPath('/services/common/customRouter');
 
 var config = [];
 
@@ -21,6 +22,7 @@ var initRouteConfig = function(){
 
 	var routers = CreateRoutes(config);
 	registerRoutes(routers);
+	CustomConfig.CreateCustomRoute();
 };
 
 var registerRoutes = function(routers){

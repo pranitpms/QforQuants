@@ -5,15 +5,15 @@ var format  = util.format;
 
 
 var routeUrl = function(name){
-
+		var keyName = name+'id';
 		var route = {
-			getAll : format('/api/%s',name),
-			get    : format('/api/%s/:%s',name,name+'id'),
-			post   : format('/api/%s',name),
-			put    : format('/api/%s/:%s',name,name+'id'),
-			delete : format('/api/%s/:%s',name,name+'id'),
-			search : format('/search/api/%s',name),
-			count  : formate('/api/%s/count',name)
+			getAll   : format('/api/%s',name),
+			get      : format('/api/%s/:%s',name,keyName),
+			post     : format('/api/%s',name),
+			put      : format('/api/%s/:%s',name,keyName),
+			delete   : format('/api/%s/:%s',name,keyName),
+			search   : format('/search/api/%s',name),
+			count    : format('/count/api/%s',name)
 		};
 		return route;
 	};

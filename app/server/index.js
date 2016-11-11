@@ -18,9 +18,9 @@ var connection = conn.CreateConnection(connectionString);
 
 if(connection){
 
-up.Executes(); //// run migrator.
+//up.Executes(); //// run migrator.
 ////initialize configuration.
-API.InitRouteConfig();
+ API.InitRouteConfig();
 
 // var route, routes = [];
 // 	server._router.stack.forEach(function(middleware){

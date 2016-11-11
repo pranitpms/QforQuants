@@ -16,8 +16,9 @@ var getCount = function(model){
 
 		promise.then(function(result){
 			console.log(result);
-			response.send(result);
+			response.send('' + result);
 		}).catch(function(error){
+			console.log(error);
 			return error;
 		});
 	});

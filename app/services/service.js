@@ -12,7 +12,7 @@ var routerArray = [
 	{route : 'user',   name : 'Users'},
 	{route :'userrole',name : 'UserRole'},
 	{route :'category',name : 'Category'},
-	{route :'reply',   name : 'Reply'},
+	// {route :'reply',   name : 'Reply'},
 	{route :'question',name : 'Questions'}
 ];
 

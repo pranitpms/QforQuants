@@ -97,8 +97,9 @@
 			};
 
 			data.ClearStorage = function(){
-				data.cache.clearAll();
-				$sessionStorage.$reset;
+				data.cache.removeAll();
+				data.$storage.$reset();
+				$sessionStorage.$reset();
 				data.userId = '';
 				data.user   = '';
 				data.isAuthenticated = '';

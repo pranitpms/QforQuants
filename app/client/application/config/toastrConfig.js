@@ -5,7 +5,7 @@
 			var options = {
 				  "closeButton"      : true,
 				  "debug"            : false,
-				  "progressBar"      : false,
+				  "progressBar"      : true,
 				  "preventDuplicates": false,
 				  "positionClass"    : "toast-top-full-width",
 				  "onclick"          : null,

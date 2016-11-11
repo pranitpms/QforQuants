@@ -4,6 +4,7 @@
 	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="bower_components/angular-toastr/dist/angular-toastr.css">
 	<link rel="stylesheet" type="text/css" href="style/style.css">
+    <link rel="stylesheet" type="text/css" href="style/trix.css">
     <link rel="stylesheet" type="text/css" href="fonts/css/font-awesome.min.css">
 	</head>
 	<body class="fixed-nav pace-done mini-navbar">
@@ -32,9 +33,9 @@
             <div class="sk-cube"></div>
             <div class="sk-cube"></div>
         </div>
-          <div ui-view></div>
+          <div ui-view style="margin-bottom: 100px;"></div>
        </div>
-       <div class="footer fixed">
+       <div class="footer">
          <div class="pull-right">
             <strong>Copyright</strong> | Pranit Bardapurkar &copy; 2015-2016
          </div>
@@ -65,14 +66,20 @@
     <script type="text/javascript" src="bower_components/angular-cache/dist/angular-cache.min.js"></script>
     <script type="text/javascript" src="bower_components/moment/moment.js"></script>
     <script type="text/javascript" src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script type="text/javascript" src="script/trix.js"></script>
+    <script type="text/javascript" src="bower_components/angular-trix/dist/angular-trix.min.js"></script>
       	<!-- endbower -->
 
     <!--Application -->
     <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="app/config/appRunConfig.js"></script>
 
     <script type="text/javascript" src="app/home/homeCtrl.js"></script>
     <script type="text/javascript" src="app/home/homeRoute.js"></script>
     <script type="text/javascript" src="app/home/forum/forumCtrl.js"></script>
+    <script type="text/javascript" src="app/home/forum/forumService.js"></script>
+    <script type="text/javascript" src="app/home/forum/forumviewCtrl.js"></script>
+    <script type="text/javascript" src="app/home/forum/forumviewService.js"></script>
 
     <script type="text/javascript" src="app/login/loginCtrl.js"></script>
     <script type="text/javascript" src="app/login/loginRoute.js"></script>
@@ -81,6 +88,9 @@
 
     <script type="text/javascript" src="app/question/questionCtrl.js"></script>
     <script type="text/javascript" src="app/question/questionRoute.js"></script>
+    <script type="text/javascript" src="app/question/newQuery/queryCtrl.js"></script>
+    <script type="text/javascript" src="app/question/newQuery/queryService.js"></script>
+    <script type="text/javascript" src="app/question/newQuery/queryRoute.js"></script>
 
     <script type="text/javascript" src="app/admin/adminCtrl.js"></script>
     <script type="text/javascript" src="app/admin/adminRoute.js"></script>
@@ -96,6 +106,7 @@
     <script type="text/javascript" src="app/forms/user.form.config.js"></script>
     <script type="text/javascript" src="app/forms/category.form.config.js"></script>
     <script type="text/javascript" src="app/forms/userRole.form.config.js"></script>
+    <script type="text/javascript" src="app/forms/question.form.config.js"></script>
 
     <script type="text/javascript" src="app/config/toastrConfig.js"></script>
     <script type="text/javascript" src="app/config/spinnerConfig.js"></script>

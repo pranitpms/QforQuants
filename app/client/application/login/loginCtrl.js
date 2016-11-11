@@ -9,7 +9,7 @@
 			login.role     = '';
 
 			login.onCancel = function(){
-				$state.go('Home');
+				$state.go('Home',{}, {reload: true});
 			};
 
 			login.onAuthenticate = function(){
@@ -34,7 +34,7 @@
 		 				else{
 		 					sessionService.IsAdmin = false;
 		 				}
-		 				$state.go('Home');
+		 				$state.go('Home',{}, {reload: true});
 					}
 					else{
 						toastr.error('user not found!!!');

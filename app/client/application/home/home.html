@@ -3,7 +3,7 @@
                 <div class="navbar-header">
                     <a class="navbar-minimalize minimalize-styl-2 btn btn-primary" id="toggleButton" href="#">
                     <i class="fa fa-bars"></i> </a>
-                    <form role="search" class="navbar-form-custom" action="../../Views/Home/search_results.html">
+                    <form role="search" class="navbar-form-custom" >
                         <div class="form-group">
                             <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
                         </div>
@@ -18,10 +18,10 @@
                         <a class="navbar-link" ng-click="home.onLogout()">LogOut</a>
                     </li>
                     <li ng-if="!home.isActive">
-                        <a ui-sref="Login" class="navbar-link">Login</a>
+                        <a ui-sref="Home.Login" class="navbar-link">Login</a>
                     </li>
                     <li ng-if="!home.isActive">
-                        <a ui-sref="Register" class="navbar-link">Sign-Up</a>
+                        <a ui-sref="Home.Register" class="navbar-link">Sign-Up</a>
                     </li>
                     <li ng-if="home.isActive && home.isAdmin">
                         <a ui-sref="Home.Admin" class="navbar-link">Admin</a>
@@ -35,7 +35,8 @@
         </div>
         <div class="ibox-content text-right p-md ">
              <span> 
-                <button type="button" class="btn btn-info m-r-sm" ng-click="home.onQuestionClick()">Q</button>Questions 
+              <a ui-sref="Home.Forum" class="btn btn-info m-r-sm" >Q</a>
+               Questions 
             </span>
             <span> 
                  <button type="button" class="btn btn-danger m-r-sm" ng-click="home.onAskButtonClick()">A</button>Ask Questions

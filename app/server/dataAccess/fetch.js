@@ -47,7 +47,6 @@ var fetchByUId = function(modelObj,id){
 };
 
 var fetchById = function(modelObj,id,keyName){
-
 	var deferred = Q.defer();
 
 	var condition = {};
@@ -55,6 +54,27 @@ var fetchById = function(modelObj,id,keyName){
 
 	console.log(condition);
 	var query = modelObj.findOne(condition);
+	var promise = query.exec();
+
+	promise.then(function(result){
+		deferred.resolve(result);
+	})
+	.catch(function(error){
+		deferred.reject(error);
+	});
+
+	return deferred.promise;
+};
+
+var fetchAllById = function(modelObj,id,keyName){
+
+	var deferred = Q.defer();
+
+	var condition = {};
+	condition[keyName] = id;
+
+	console.log(condition);
+	var query = modelObj.find(condition);
 	var promise = query.exec();
 
 	promise.then(function(result){
@@ -87,7 +107,7 @@ var fetchAll = function(modelObj){
 var getCount = function(modelObj,condition){
 
 	var deferred = Q.defer();
-
+	
 	var query = modelObj.count(condition);
 	var promise = query.exec();
 
@@ -102,9 +122,10 @@ var getCount = function(modelObj,condition){
 };
 
 module.exports = {
-	Fetch      : fetch,
-	FetchByUId : fetchByUId,
-	FetchById  : fetchById,
-	FetchAll   : fetchAll,
-	GetCount   : getCount
+	Fetch         : fetch,
+	FetchByUId    : fetchByUId,
+	FetchById     : fetchById,
+	FetchAllById  : fetchAllById,
+	FetchAll      : fetchAll,
+	GetCount      : getCount
 }

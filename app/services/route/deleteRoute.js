@@ -12,13 +12,9 @@ var DELETE = function(modelObj,keyName){
 var DeleteMethod = function(modelObj,keyName){
 	return (function(request,response,next){
 
-		console.log(keyName);
-		console.log('key : ' + request.params[keyName]);
-
 		var key  = request.params[keyName];
-		var options = request.body.options;
 
-		var promise = Remove.Delete(modelObj,key,options);
+		var promise = Remove.Delete(modelObj,key);
 
 		promise.then(function(result){
 			response.send(result);
