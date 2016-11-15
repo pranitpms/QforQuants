@@ -10,7 +10,8 @@
     	'angular-cache',
     	'ngStorage',
         'toastr',
-        'angularTrix'
+        'angularTrix',
+        'angular-input-stars'
 		])
 		.config(function($urlRouterProvider, $anchorScrollProvider, $uiViewScrollProvider,$httpProvider){
 			$urlRouterProvider.otherwise('/');

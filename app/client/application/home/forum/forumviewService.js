@@ -42,10 +42,28 @@
 				return deffered.promise;
 			};
 
+			var updateReply = function(data,id){
+				var defered =  $q.defer();
+
+				$http({
+					method : 'PUT',
+					data   : {update : data},
+					url    : modelName + apiUri +'/'+id
+				}).success(function(result){
+					defered.resolve(result);
+				}).error(function(error){
+					defered.reject(error);
+				});
+
+				return defered.promise;
+			};
+
+
 			
 			return{
 				GetAllReplys : getAllReplys,
-				SaveReply    : saveReply  
+				SaveReply    : saveReply,
+				UpdateReply  : updateReply
 			};
 
 		});

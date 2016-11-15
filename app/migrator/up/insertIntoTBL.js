@@ -8,7 +8,7 @@ var helper       = AppPath('/migrator/migratorHelper');
 var Exception    = AppPath('/exceptions/baseException').Exception;
 var _            = require('lodash-node');
 var tblModel     = AppPath('/model/TBLModel');
-var userModel     = AppPath('/model/userModel');
+var userModel    = AppPath('/model/userModel');
 
 var mongoose     = require('mongoose');
 mongoose.Promise = require('bluebird');

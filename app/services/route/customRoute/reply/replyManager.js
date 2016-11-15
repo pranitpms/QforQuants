@@ -20,8 +20,7 @@ var saveReply = function(modelObj){
 		return insert.Save(modelObj);
 	}).then(function(reply){
 		return fetchByID(reply._id,null);
-	}).then(function(result){
-		console.log('result : '  + result._user);
+	}).then(function(newResult){
 		deferred.resolve(newResult);
 	}).catch(function(error){
 		deferred.reject(error);
@@ -85,9 +84,25 @@ var deleteReply = function(modelObj,id){
 	return deferred.promise;
 };
 
+var updateReply = function(modelObj,id, update, options){
+	var deferred = Q.defer();
+
+	var query = modelObj.findByIdAndUpdate(id, update, options);
+	var promise = query.exec();
+
+	promise.then(function(result){
+		deferred.resolve(result);
+	})
+	.catch(function(error){
+		deferred.reject(error);
+	});
+	return deferred.promise;
+};
+
 module.exports = {
 	SaveReply   : saveReply,
 	FetchReply  : fetchReply,
-	DeleteReply : deleteReply
+	DeleteReply : deleteReply,
+	UpdateReply : updateReply
 }
 

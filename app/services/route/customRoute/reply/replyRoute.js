@@ -57,9 +57,25 @@ var createRouter = function(model){
 
 	router.delete(routes.delete,function(request,response,next){
 
-		var key  = request.params[keyName];
+		var key  = request.params['replyid'];
 
 		var promise = Manager.DeleteReply(model,key);
+
+		promise.then(function(result){
+			response.send(result);
+		})
+		.catch(function(error){
+			return error;
+		})
+	});
+
+	router.put(routes.update,function(request,response,next){
+
+		var id      = request.params['replyid'];
+		var options = request.body.options || { new : true };
+		var update  = request.body.update;
+
+		var promise = Manager.UpdateReply(model, id, update, options);
 
 		promise.then(function(result){
 			response.send(result);

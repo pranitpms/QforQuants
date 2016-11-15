@@ -44,6 +44,8 @@
                                 <div class="media-body">
                                     <h3 class="font-bold">{{repl._user[0].name}}</h3>
                                     <small class="text-muted">{{repl.lastModify}}</small>
+                                    <input-stars max="5" list-class="angular-input-stars" on-star-click="forumview.onClickReplyStar(repl.avgRating,repl)" ng-model="repl.avgRating">
+                                    </input-stars>
                                    <!-- Today 4:21 pm - 12.06.2014  -->
                                 </div> 
                             </div>

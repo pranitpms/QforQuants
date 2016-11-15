@@ -11,7 +11,13 @@ var replySchema = new Schema({
 	userId     : Number,
 	_user      : [{ type: Schema.Types.ObjectId, ref: 'Users' }],
 	rate       : Number,
-	lastModify : Date
+	lastModify : Date,
+	rate_1     : Number,
+	rate_2     : Number,
+	rate_3     : Number,
+	rate_4     : Number,
+	rate_5     : Number,
+	avgRating  : Number
 },
 { strict: false });
 

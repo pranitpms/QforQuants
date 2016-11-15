@@ -57,6 +57,22 @@
 				return deffered.promise;
 			};
 
+			var updateQuestion = function(data,id){
+				var defered =  $q.defer();
+
+				$http({
+					method : 'PUT',
+					data   : {update : data},
+					url    : modelName + apiUri +'/'+id
+				}).success(function(result){
+					defered.resolve(result);
+				}).error(function(error){
+					defered.reject(error);
+				});
+
+				return defered.promise;
+			};
+
 			var buildOptions = function(pageNumber,sort){
 				var options = {
 					limit : 30,
@@ -74,7 +90,8 @@
 			return{
 				GetTotalCount   : getTotalCount,
 				GetAllQuestions : getAllQuestions,
-				GetQuestionById : getQuestionById
+				GetQuestionById : getQuestionById,
+				UpdateQuestion  : updateQuestion
 			};
 
 		});
