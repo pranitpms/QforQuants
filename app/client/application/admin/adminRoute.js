@@ -8,6 +8,9 @@
 				controller   : 'adminController',
 				controllerAs : 'admin',
 				authenticate : true,
+				Data         : {
+               	  displayName: 'Admin'
+                }
 			}).state('Home.Admin.User',{
 				url          : 'users',
 				templateUrl  : 'app/admin/users/user.html',
@@ -21,7 +24,10 @@
 					formData : function(userFormConfig){
 						return userFormConfig.GetFormData();
 					}
-				}
+				},
+				Data         : {
+               	  displayName: 'Users'
+                }
 			}).state('Home.Admin.UserRole',{
 				url          : 'userrole',
 				templateUrl  : 'app/admin/userRole/userRole.html',
@@ -32,7 +38,10 @@
 					userRoleList : function (userRoleService){
 						return userRoleService.GetAllRoles();
 					}
-				}
+				},
+				Data         : {
+               	  displayName: 'User Roles'
+                }
 			}).state('Home.Admin.Category',{
 				url          : 'category',
 				templateUrl  : 'app/admin/category/category.html',
@@ -43,7 +52,10 @@
 					categories : function (categoryService){
 						return categoryService.GetAllCategory();
 					}
-				}
+				},
+				Data         : {
+               	  displayName: 'Category'
+                }
 			});
 		});
 })();

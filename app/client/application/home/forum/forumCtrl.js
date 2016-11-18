@@ -10,16 +10,33 @@
 
 			var forum = this;
 			forum.count = count || 0;
+			forum.pages = 0;
 			forum.questions = questions;
 			forum.firstPage = 1;
-			forum.lastPage  = count;
+			forum.lastPage  = 0;
 			forum.currentPage = 1;
 			forum.sort = null;
 			forum.condition = null;
 
+
+			forum.createPages = function(){
+
+				var pageCount = forum.count / 15;
+				var range = [];
+				for(var i = 0; i < pageCount ; i++) {
+				  range.push( i+1 );
+				}
+
+				forum.lastPage = range.length;
+				return range;
+			};
+
+			forum.pages = forum.createPages();
+
 			forum.onClickPageButton = function(page){
-				forum.currentPage = page; 
-				var promise = forumService.GetAllQuestions(forum.currentPage,forum.condition,forum.sort);
+				forum.currentPage = page ; 
+
+				var promise = forumService.GetAllQuestions(page,forum.condition,forum.sort);
 
 				promise.then(function(result){
 					forum.questions = result;
@@ -29,9 +46,11 @@
 			}
 
 			forum.onClickNextButton = function(){
-				if(forum.currentPage > forum.lastPage){
+				if(forum.currentPage < forum.lastPage){
+					
 					forum.currentPage ++;
 					var promise = forumService.GetAllQuestions(forum.currentPage,forum.condition,forum.sort);
+					
 
 					promise.then(function(result){
 						forum.questions = result;
@@ -42,7 +61,8 @@
 			};
 
 			forum.onClickPrevButton = function(){
-				if(forum.currentPage < forum.firstPage){
+				if(forum.currentPage > forum.firstPage){
+					
 					forum.currentPage --;
 					var promise = forumService.GetAllQuestions(forum.currentPage,forum.condition,forum.sort);
 

@@ -12,8 +12,25 @@ var extend = require('util')._extend;
 var fetch = function(modelObj,condition,fields,options){
 
 	var deferred = Q.defer();
+	var query = modelObj.find(condition);
 
-	var query = modelObj.find(condition,fields,options);
+	if(fields){
+		var result = '\'' + fields.split(',').join('\',\'') + '\'';
+		query = query.select(result);
+	}
+	
+	if(options){
+		if(options.limit){
+			 query = query.limit(parseInt(options.limit));
+		}
+		if(options.skip){
+			 query = query.skip(parseInt(options.skip));
+		}
+		if(options.sort){
+			query =  query.sort(options.sort);
+		}
+	}
+	
 	var promise = query.exec();
 
 	promise.then(function(result){

@@ -12,7 +12,12 @@
 				$state.go('Home',{}, {reload: true});
 			};
 
-			login.onAuthenticate = function(){
+			login.onAuthenticate = function(isValid){
+
+				if(!isValid){
+					toastr.error('please enter reqired information in the field');
+					return;
+				}
 
 				if(!login.password && !login.username){
 					toastr.error('Username and Password is required.');
@@ -22,7 +27,7 @@
 				var promise = loginService.AuthenticateUser(login.username,login.password);
 
 				promise.then(function(result){
-					if(result){
+					if(result || result.length !== 0 ){
 						sessionService.IsAuthenticated = true;
 						sessionService.User            = result[0];
 		 				sessionService.UserId          = result[0].userID;
@@ -37,7 +42,8 @@
 		 				$state.go('Home',{}, {reload: true});
 					}
 					else{
-						toastr.error('user not found!!!');
+						toastr.error('user not found!!! \n please enter valid user name.');
+						return;
 					}
 				}).catch(function(error){
 					toastr.error(error);

@@ -34,9 +34,8 @@ var createRouter = function(model){
 		var promise = Manager.FetchReply(model,condition,fields,options);
 		promise.then(function(result){
 			response.send(result);
-			return result;
 		}).catch(function(error){
-			return error;
+			response.send(error);
 		})
 	});
 
@@ -48,10 +47,9 @@ var createRouter = function(model){
 
 		promise.then(function(result){
 			response.send(result);
-			console.log(result)
 		})
 		.catch(function(error){
-			return error;
+			response.send(error);
 		})
 	});
 
@@ -65,7 +63,7 @@ var createRouter = function(model){
 			response.send(result);
 		})
 		.catch(function(error){
-			return error;
+			response.send(error);
 		})
 	});
 
@@ -81,7 +79,7 @@ var createRouter = function(model){
 			response.send(result);
 		})
 		.catch(function(error){
-			return error;
+			response.send(error);
 		})
 	});
 
@@ -96,8 +94,8 @@ var buildCondition = function(condition){
 	_.forEach(arr,function(token){
 		
 		var  pair = token.split(":");
-		var key   = pair[0];
-		var value = pair[1];
+		var key   = pair[0].trim();
+		var value = pair[1].trim();
 		c[key]    = value;
 	})
 	return c;

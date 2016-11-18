@@ -16,6 +16,7 @@ var questionSchema = new Schema({
 },
 { strict: false });
 
+questionSchema.index({ question : 'text', title : 'text'});
 
 questionSchema.virtual('PrimaryKey').get(function(){
 	return 'questionId';

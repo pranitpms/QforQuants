@@ -2,15 +2,20 @@
 
 var rootPath      = require('rfr');
 var AppPath       = rootPath('/app/appConfig');
-var RegisterService = AppPath('/services/common/registerService')
+var ServiceRegistrar = AppPath('/services/common/registerService')
 
 
 var createCustomRoute = function(){
-	RegisterService.Register('router','reply');
+	ServiceRegistrar.RegisterService('router','reply');
 };
+
+var routeDecorator = function(router,routeName,model){
+	ServiceRegistrar.RegisterService('decorator',routeName,model,router);
+}
 
 
 
 module.exports = {
-	CreateCustomRoute : createCustomRoute
+	CreateCustomRoute : createCustomRoute,
+	RouteDecorator    : routeDecorator
 }

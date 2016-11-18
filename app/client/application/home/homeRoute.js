@@ -7,7 +7,10 @@
 				templateUrl  : 'app/home/home.html',
 				controller   : 'homeController',
 				controllerAs : 'home',
-				authenticate : false
+				authenticate : false,
+				Data         : {
+               	  displayName: 'Home',
+                }
 			}).state('Home.Forum',{
 				url          : 'forum',
 				templateUrl  : 'app/home/forum/forum.html',
@@ -21,7 +24,10 @@
 						return forumService.GetTotalCount(null);
 					}
 				},
-				authenticate : false
+				authenticate : false,
+				Data         : {
+               	  displayName: 'Forum '
+                }
 			}).state('Home.ForumView',{
 				url          : 'forum/forumview/:questionId',
 				templateUrl  : 'app/home/forum/forumview.html',
@@ -35,7 +41,10 @@
 					questionDetails : function($stateParams,forumService){
 						return forumService.GetQuestionById($stateParams.questionId);
 					}
-				}
+				},
+				data         :{
+               	  displayName: 'Forum View'
+                }
 			});
 		});
 })();

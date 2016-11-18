@@ -21,7 +21,7 @@ var putMethod = function(model,keyName){
 			response.send(result);
 		})
 		.catch(function(error){
-			return error;
+			response.send(error);
 		})
 	});
 }

@@ -20,7 +20,7 @@ var postMethod = function(model){
 			console.log(result)
 		})
 		.catch(function(error){
-			return error;
+			response.send(error);
 		})
 	});
 };

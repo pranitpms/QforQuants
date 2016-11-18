@@ -11,7 +11,10 @@
     	'ngStorage',
         'toastr',
         'angularTrix',
-        'angular-input-stars'
+        'angular-input-stars',
+        'angularUtils.directives.uiBreadcrumbs',
+        'ghiscoding.validation', 
+        'pascalprecht.translate'
 		])
 		.config(function($urlRouterProvider, $anchorScrollProvider, $uiViewScrollProvider,$httpProvider){
 			$urlRouterProvider.otherwise('/');

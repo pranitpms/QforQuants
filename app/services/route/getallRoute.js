@@ -19,7 +19,7 @@ var getMethod = function(model){
 		promise.then(function(result){
 			response.send(result);
 		}).catch(function(error){
-			return error;
+			response.send(error);
 		});
 	});
 }

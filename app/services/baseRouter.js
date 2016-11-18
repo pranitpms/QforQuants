@@ -13,6 +13,8 @@ var PUT      = AppPath('/services/route/putRoute');
 var DELETE   = AppPath('/services/route/deleteRoute');
 var COUNT    = AppPath('/services/route/countRoute');
 
+var CustomConfig  = AppPath('/services/common/customRouter');
+
 var routeTable  = [];
 
 var CreateRoutes = function(config){
@@ -60,6 +62,8 @@ var create = function(routeName,model,serviceUri){
 	router.delete(serviceUri.delete,DELETE(model,keyName));
 
 	router.get(serviceUri.count,COUNT(model));
+
+	CustomConfig.RouteDecorator(router,routeName,model);
 
 	return router;
 };

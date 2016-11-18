@@ -32,7 +32,11 @@
     "moment": "^2.15.2",
     "angular-toastr": "^2.1.1",
     "angular-trix": "^1.0.2",
-    "angular-input-stars-directive": "angular-input-stars#^1.6.3"
+    "angular-input-stars-directive": "angular-input-stars#^1.6.3",
+    "angular-utils-ui-breadcrumbs": "^0.2.2",
+    "angular-validation-ghiscoding": "^1.5.9",
+    "angular-translate": "^2.13.0",
+    "angular-translate-loader-static-files": "^2.13.0"
   },
   "devDependencies": {
     "jasmine-core": "jasmine#~2.5.2",

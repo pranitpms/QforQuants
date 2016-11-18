@@ -74,17 +74,12 @@
 			};
 
 			var buildOptions = function(pageNumber,sort){
-				var options = {
-					limit : 30,
-					skip  : (30 * pageNumber)
-				};
 
-				if(sort){
-					var field = sort.field;
-					options['sort'] = { field : sort.order}
-				}
+				pageNumber = (pageNumber === 0) ? 0 : pageNumber - 1;
 
+				var options = 'limit : 15 , skip : '+ (15 * pageNumber);
 				return options;
+				
 			};
 
 			return{

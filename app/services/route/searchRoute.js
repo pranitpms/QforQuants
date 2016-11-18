@@ -12,30 +12,29 @@ var SEARCH = function(modelObj){
 
 var serchMethod = function(modelObj){
 	return (function(request,response,next){
-		var condition  = buildCondition(request.query['condition']);
+		var condition  = buildJson(request.query['condition']);
 		var fields     = request.query['fields'] || null;
-		var options    = request.query['options'] || null;
+		var options    = buildJson(request.query['options']) || null;
 
 		var promise = Fetch.Fetch(modelObj,condition,fields,options);
 		promise.then(function(result){
 			response.send(result);
-			return result;
 		}).catch(function(error){
-			return error;
+			response.send(error);
 		});
 	});
 }
 
 
-var buildCondition = function(condition){
-	if(!condition) return null;
+var buildJson = function(param){
+	if(!param) return null;
 
-	var arr = condition.split(",");
+	var arr = param.split(",");
 	var c = {};
 	_.forEach(arr,function(token){
 		var  pair = token.split(":");
-		var key   = pair[0];
-		var value = pair[1];
+		var key   = pair[0].trim();
+		var value = pair[1].trim();
 		c[key]    = value;
 	})
 

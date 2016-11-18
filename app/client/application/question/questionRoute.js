@@ -7,7 +7,10 @@
 				templateUrl  : 'app/question/question.html',
 				controller   : 'questionController',
 				controllerAs : 'question',
-				authenticate : true
+				authenticate : true,
+				data         :{
+               	  displayName: 'Questions'
+                }
 			});
 		});
 })();

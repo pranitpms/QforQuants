@@ -20,7 +20,7 @@ var getMethod = function(model,keyName,primaryKey){
 		promise.then(function(result){
 			response.send(result);
 		}).catch(function(error){
-			return error;
+			response.send(error);
 		});
 	});
 }

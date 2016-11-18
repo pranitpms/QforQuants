@@ -9,14 +9,14 @@
             <p>A qunatitative forum for to answere your questions.            
             </p>
             <p>Login in</p>
-            <form class="m-t" novalidate="true">
+            <form class="m-t" name="loginForm">
                 <div class="form-group">
-                    <input type="text" class="form-control" ng-model="login.username" placeholder="Username" required="">
+                    <input type="text" name="UserName" class="form-control" ng-model="login.username" placeholder="Username" validation="required">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" ng-model="login.password" placeholder="Password" required="">
+                    <input type="password" name="Password" class="form-control" ng-model="login.password" placeholder="Password" validation="required">
                 </div>
-                <button type="submit" class="btn btn-primary block full-width m-b" ng-click="login.onAuthenticate()">Login</button>
+                <button type="submit" class="btn btn-primary block full-width m-b" ng-click="login.onAuthenticate(loginForm.$valid)">Login</button>
                 <button type="reset"  class="btn block full-width m-b" ng-click="login.onCancel()">Cancel</button>
 
                 <a href="#"><small>Forgot password?</small></a>

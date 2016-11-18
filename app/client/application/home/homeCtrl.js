@@ -29,7 +29,16 @@
 			};
 			home.onQuestionClick = function(){
 				$state.go('Home',{}, {reload: true});
-			}
+			};
+
+			home.onClickSearch = function(e){
+				if(e.charCode === 13 && home.searchText){
+					$state.go('Home.Search',{ text : home.searchText });
+				}
+				else{
+					return;
+				}
+			};
 		});
 })();
 

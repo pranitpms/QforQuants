@@ -6,30 +6,30 @@ module.exports = function(grunt){
 	var rootPath  = require('rfr');
     var htmlIndex = path.join(rootPath.root,'app/client/index.html');
 
-grunt.loadNpmTasks('grunt-wiredep');
+	grunt.loadNpmTasks('grunt-wiredep');
+	grunt.loadNpmTasks('grunt-contrib-watch');
 
 	grunt.initConfig({
-		wiredep:{
-			task:{
-				src: htmlIndex
-			}
-		}
-		// },
-		// watch: {
-		//   files: ['bower_components/*', __dirname + 'app/client/index.html'],
-		//   tasks: ['wiredep']
-		// }
+	    wiredep: {
+	      app: {
+	        src: htmlIndex
+	      }
+	    },
+	    watch:{
+	    	scripts: {
+		    files: ['**/*.html'],
+		    tasks: ['wiredep'],
+		    options: {
+		      spawn: false,
+		    },
+		  }
+	    }
 	});
 
+	grunt.registerTask('_wiredep', ['wiredep']);
+	grunt.registerTask('_watch', ['watch']);
+	grunt.registerTask('default', ['_wiredep','_watch']);
 	
-	// grunt.loadNpmTasks('grunt-contrib-less');
-	// grunt.loadNpmTasks('grunt-contrib-watch');
-
-
-	grunt.registerTask('wiredep', ['wiredep']);
-// 	grunt.registerTask('changes', ['watch']);
-// //	grunt.registerTask('less'   , ['less']);
-// 	grunt.registerTask('default', ['wiredep','watch']);
 
 
 }

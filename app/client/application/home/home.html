@@ -1,11 +1,11 @@
  <div class="row border-bottom">
             <nav class="navbar white-bg navbar-fixed-top" role="navigation" style="margin-bottom: 0;height: 58px;">
                 <div class="navbar-header">
-                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary" id="toggleButton" href="#">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary" id="toggleButton">
                     <i class="fa fa-bars"></i> </a>
-                    <form role="search" class="navbar-form-custom" >
+                    <form role="search" class="navbar-form-custom" name="topSearchForm" >
                         <div class="form-group">
-                            <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                            <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search" ng-model="home.searchText" ng-keypress="home.onClickSearch($event)">
                         </div>
                     </form>
                 </div>
@@ -28,7 +28,10 @@
                     </li>
                 </ul>
             </nav>
-       </div>
+   </div>
+ <ui-breadcrumbs displayname-property="data.displayName" abstract-proxy-property="data.breadcrumbProxy" template-url="app/common/template/breadcrumsTplt.html">
+ </ui-breadcrumbs>
+
  <div id="homeDiv" class="wrapper wrapper-content animated fadeInRight">
    <div class="ibox float-e-margins">
         <div class="ibox-title text-center p-md" >
@@ -41,9 +44,9 @@
             <span> 
                  <button type="button" class="btn btn-danger m-r-sm" ng-click="home.onAskButtonClick()" data-toggle="tooltip" data-placement="bottom" data-original-title="Ask Questions">A</button>Ask Questions
             </span>
-            <span> 
+            <!-- <span> 
                 <button type="button" class="btn btn-active m-r-sm">B</button>Blogs
-            </span>
+            </span> -->
         </div>
     </div>
 </div>

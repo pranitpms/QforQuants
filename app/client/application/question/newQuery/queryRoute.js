@@ -12,7 +12,10 @@
 					   return categoryService.GetAllCategory();
 					}
 				},
-				authenticate : true
+				authenticate : true,
+				data         :{
+               	  displayName: 'New Query'
+                }
 			});
 		});
 })();

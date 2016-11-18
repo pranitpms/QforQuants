@@ -19,7 +19,7 @@ var getCount = function(model){
 			response.send('' + result);
 		}).catch(function(error){
 			console.log(error);
-			return error;
+			response.send(error);
 		});
 	});
 };
@@ -31,8 +31,8 @@ var buildCondition = function(condition){
 	var c = {};
 	_.forEach(arr,function(token){
 		var  pair = token.split(":");
-		var key   = pair[0];
-		var value = pair[1];
+		var key   = pair[0].trim();
+		var value = pair[1].trim();
 		c[key]    = value;
 	})
 

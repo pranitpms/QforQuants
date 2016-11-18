@@ -1,0 +1,50 @@
+<div class="col-lg-12">
+    <div class="ibox float-e-margins">
+        <div class="ibox-content">
+            <h2>
+                {{search.count}} results found for: <span class="text-navy">“{{search.searchText}}”</span>
+            </h2>
+
+            <div class="search-form" name="searchForm">
+                <form >
+                    <div class="input-group">
+                        <input type="text" name="searchText" placeholder="Search" ng-required="true" ng-model="search.newSearchText" class="form-control input-lg" pmbx_context="">
+
+                        <div class="input-group-btn">
+                            <button class="btn btn-lg btn-primary" ng-disabled="!searchForm.searchText.$dirty || searchForm.searchText.$invalid" type="button" ng-click="search.onClickSearch()">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div ng-repeat="question in search.list">
+                 <div class="search-result">
+                    <h3>
+                        <a ui-sref="Home.ForumView({questionId : question.questionId})" class="forum-item-title">{{question.title}}</a>
+                    </h3>
+                    <p>
+                        <div ng-bind-html="question.question| limitTo: 500"></div>
+                    </p>
+                </div>
+                <div class="hr-line-dashed"></div>
+            </div>
+           
+            <div class="text-center">
+                <div class="btn-group" ng-if="search.pages != 0">
+                    <button class="btn btn-white" type="button" ng-click="search.onClickPrevButton()">
+                        <i class="fa fa-chevron-left"></i>
+                    </button>
+                    <button class="btn btn-white" ng-repeat="page in search.pages" ng-class="{active : page ==      search.currentPage}" ng-click="search.onClickPageButton(page)">
+                        {{page}}
+                    </button>
+                    <button class="btn btn-white" type="button" ng-click="search.onClickNextButton()">
+                        <i class="fa fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+       
