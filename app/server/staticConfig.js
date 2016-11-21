@@ -9,7 +9,7 @@ var loadStaticResource = function(app){
 
 	var applicationPath = path.join(AppPath.root, 'client','application');
 
-	console.log('applicationPath : ' + applicationPath);
+	console.log('__dirname : ' + __dirname);
 	app.use(express.static(path.join(AppPath.root,'client')));
 	app.use(express.static(path.join(applicationPath,'admin')));
 	app.use(express.static(path.join(applicationPath,'home')));
