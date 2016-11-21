@@ -2,7 +2,7 @@
 
 var rfr     = require('rfr');
 var AppPath = require('rfr')({
-	root : rfr.root + 'app'
+	root : rfr.root 
 });
 
 module.exports = AppPath;
