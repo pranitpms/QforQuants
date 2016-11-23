@@ -16,6 +16,8 @@ var connectionString = conUtil.ConnectionString;
 
 var connection = conn.CreateConnection(connectionString);
 
+var applicationPort = process.env.PORT || 5000;
+
 if(connection){
 
 //up.Executes(); //// run migrator.
@@ -36,9 +38,9 @@ if(connection){
 
 // console.log(routes);
 
-server.listen(5000,function(){
+server.listen(applicationPort,function(){
 	console.log('Server Connection succesfully..!!!\n');
-	console.log('listening on port 5000');
+	console.log('listening on port ' + applicationPort);
 	});
 }
 
