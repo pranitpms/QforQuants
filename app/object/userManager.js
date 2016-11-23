@@ -5,7 +5,7 @@ var AppPath           = rootPath('/app/appConfig');
 var user              = AppPath('/model/userModel');
 var Manager           = AppPath('/server/dataAccess/entityManager');
 var Exception         = AppPath('/exceptions/baseException').Exception;
-var tableKeyGenerator = AppPath('/server/modelUtility/tableKeyGenerator');
+var tableKeyGenerator = AppPath('/server/modelUtility/tableKyeGenerator');
 
 var saveUser = function(json){
 	var entity = new user(json);

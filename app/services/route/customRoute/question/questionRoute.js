@@ -2,7 +2,7 @@
 
 var rootPath = require('rfr');
 var AppPath  = rootPath('/app/appConfig');
-var TextSearch    = AppPath('/server/dataAccess/textsearch');
+var TextSearch    = AppPath('/server/dataAccess/textSearch');
 var _       = require('lodash-node');
 
 var decorate = function(model,router){

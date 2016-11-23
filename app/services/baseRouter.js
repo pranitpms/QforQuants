@@ -5,7 +5,7 @@ var _       = require('lodash-node');
 
 var rootPath = require('rfr');
 var AppPath  = rootPath('/app/appConfig');
-var GETALL   = AppPath('/services/route/getAllRoute');
+var GETALL   = AppPath('/services/route/getallRoute');
 var GET      = AppPath('/services/route/getRoute');
 var SEARCH   = AppPath('/services/route/searchRoute');
 var POST     = AppPath('/services/route/postRoute');

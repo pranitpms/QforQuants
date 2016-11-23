@@ -5,7 +5,7 @@ var AppPath           = rootPath('/app/appConfig');
 var question          = AppPath('/model/questionModel');
 var Manager           = AppPath('/server/dataAccess/entityManager');
 var Exception         = AppPath('/exceptions/baseException').Exception;
-var tableKeyGenerator = AppPath('/server/modelUtility/tableKeyGenerator');
+var tableKeyGenerator = AppPath('/server/modelUtility/tableKyeGenerator');
 
 var saveQuestion = function(json){
 	var entity = new question(json);
