@@ -18,7 +18,7 @@ var connection = conn.CreateConnection(connectionString);
 
 if(connection){
 
-up.Executes(); //// run migrator.
+//up.Executes(); //// run migrator.
 ////initialize configuration.
  API.InitRouteConfig();
 
