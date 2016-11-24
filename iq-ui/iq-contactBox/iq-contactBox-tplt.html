@@ -1,0 +1,20 @@
+<div class="col-lg-3" ng-repeat="user in users">
+    <div class="contact-box center-version">
+        <a ui-serf="Profile">
+            <img alt="image" class="img-circle" src="">
+            <h3 class="m-b-xs"><strong>{{user.name}}</strong></h3>
+            <div class="font-bold">{{user.qualification}}</div>
+            <address class="m-t-md">
+                Date-of-Birth &nbsp : &nbsp<strong>{{user.dateOfBirth | date:'mediumDate'}}</strong><br>
+                UserName &nbsp:&nbsp<strong>{{user.username}}</strong><br>
+                Email    &nbsp:&nbsp <strong>{{user.email}}</strong><br>
+                Phone    &nbsp:&nbsp <strong>{{user.mobile}}</strong>
+            </address>
+        </a>
+        <div class="contact-box-footer">
+            <div class="m-t-xs btn-group">
+                <a class="btn btn-xs btn-white"><i class="fa fa-envelope"></i>Email</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -22,6 +22,7 @@ var loadStaticResource = function(app){
 	app.use('/fonts',express.static(path.join(AppPath.root, 'client','font-awesome')));
 	app.use('/app',express.static(applicationPath));
 	app.use('/bower_components',express.static(path.join(rootPath.root, 'bower_components')));
+	app.use('/directives',express.static(path.join(rootPath.root, 'iq-ui')));
 	app.use(favicon(path.join(AppPath.root,'client','favicon.ico')));
 
 };

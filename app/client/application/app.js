@@ -14,7 +14,8 @@
         'angular-input-stars',
         'angularUtils.directives.uiBreadcrumbs',
         'ghiscoding.validation', 
-        'pascalprecht.translate'
+        'pascalprecht.translate',
+        'iq-ui'
 		])
 		.config(function($urlRouterProvider, $anchorScrollProvider, $uiViewScrollProvider,$httpProvider){
 			$urlRouterProvider.otherwise('/');

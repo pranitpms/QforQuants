@@ -3,25 +3,25 @@
 	   <div class="ibox float-e-margins">
 	       <div class="ibox-content">
 		      Before asking new question serach in existing forum.
-	           <div class="search-form" name="searchForm">
-                    <form >
+	           <div class="search-form" >
+                    <form name="searchForm">
                         <div class="input-group">
-                            <input type="text" name="searchText" placeholder="Search" ng-required="true" ng-model="question.searchText" class="form-control input-lg" pmbx_context="">
+                            <input type="text" name="searchText" placeholder="Search" ng-required="true" ng-model="question.searchText" class="form-control input-lg">
 
                             <div class="input-group-btn">
                                 <button class="btn btn-lg btn-primary" ng-disabled="!searchForm.searchText.$dirty || searchForm.searchText.$invalid" type="button" ng-click="question.onClickSearch()">
                                     Search
                                 </button>
                             </div>
+
                         </div>
                     </form>
                 </div>
                 <div class="row">
-                    <p> Or ask new question</p>
+                     <p> Or ask new question</p>
                      <a ui-sref="Home.NewQuery" class="btn btn-info m-r-sm" >Proceed</a> 
                 </div>
             </div>
         </div>
     </div>
 </div>
-
