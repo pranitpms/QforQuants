@@ -18,6 +18,7 @@ var putMethod = function(model,keyName){
 		var promise = Put.Update(model, id, update, options);
 
 		promise.then(function(result){
+			console.log('D : ' + result);
 			response.send(result);
 		})
 		.catch(function(error){

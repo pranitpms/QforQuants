@@ -6,7 +6,7 @@
 		var role   = this;
 		var model    = userRoleFormConfig.Model;
 		
-		role.config = {columns:[]}
+		role.config = {columns:[]};
 		role.dataList = userRoleList || [];
 		role.instance = angular.copy(model);
 		role.addMode  = false;

@@ -6,7 +6,7 @@
 		var user   = this;
 		var model    = formData.Model;
 		
-		user.config = {columns:[]}
+		user.config = {columns:[]};
 		user.userList = userList || [];
 		user.instance = model;
 

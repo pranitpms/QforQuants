@@ -16,29 +16,13 @@ var connectionString = conUtil.ConnectionString;
 
 var connection = conn.CreateConnection(connectionString);
 
+var applicationPort = process.env.PORT || 5000;
+
 if(connection){
-
-//up.Executes(); //// run migrator.
-////initialize configuration.
- API.InitRouteConfig();
-
-// var route, routes = [];
-// 	server._router.stack.forEach(function(middleware){
-//     if(middleware.route){ // routes registered directly on the app
-//         routes.push(middleware.route);
-//     } else if(middleware.name === 'router'){ // router middleware 
-//         middleware.handle.stack.forEach(function(handler){
-//             route = handler.route;
-//             route && routes.push(route);
-//         });
-//     }
-// });
-
-// console.log(routes);
-
-server.listen(5000,function(){
-	console.log('Server Connection succesfully..!!!\n');
-	console.log('listening on port 5000');
+	API.InitRouteConfig();
+	server.listen(applicationPort,function(){
+		console.log('Server Connection succesfully..!!!\n');
+		console.log('listening on port ' + applicationPort);
 	});
 }
 

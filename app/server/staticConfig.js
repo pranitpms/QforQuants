@@ -1,15 +1,14 @@
 
-var express    = require('express');
-var favicon    = require('serve-favicon');
-var rootPath   = require('rfr');
-var AppPath    = rootPath('/app/appConfig');
-var path       = require('path');
+var express  = require('express');
+var favicon  = require('serve-favicon');
+var rootPath = require('rfr');
+var AppPath  = rootPath('/app/appConfig');
+var path     = require('path');
 
 var loadStaticResource = function(app){
 
 	var applicationPath = path.join(AppPath.root, 'client','application');
 
-	console.log('__dirname : ' + __dirname);
 	app.use(express.static(path.join(AppPath.root,'client')));
 	app.use(express.static(path.join(applicationPath,'admin')));
 	app.use(express.static(path.join(applicationPath,'home')));

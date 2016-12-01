@@ -6,5 +6,5 @@
 
 			var elemen = angular.element($('#homeDiv'));
 			elemen[0].hidden =true;
-	})
+	});
 })();

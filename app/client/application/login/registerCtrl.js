@@ -48,8 +48,9 @@
             register.maxDate.setFullYear(maxyear);
 
             register.open = function ($event) {
-               return register.opened = true;
+                register.opened = true;
+                return true;
             };
 
-		})
+		});
 })();

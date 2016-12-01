@@ -37,8 +37,9 @@
 				postDate   : '',
 				userId     : 0,
 				rate       : 0,
-				lastModify : ''
+				lastModify : '',
+				_user      : ''
 			};
 
-		})
+		});
 })();

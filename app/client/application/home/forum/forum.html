@@ -12,6 +12,9 @@
                     <i class="fa fa-bolt"></i>
                 </div>
                 <a ui-sref="Home.ForumView({questionId : question.questionId})" class="forum-item-title">{{question.title}}</a>
+                <div class="row">
+                    <h3 class="font-bold"><small>Posted by :-</small>{{question._user[0].name}}</h3>
+                </div>
                 <div class="forum-sub-title">
                     <div ng-bind-html="question.question| limitTo: 500"></div>
                 </div>

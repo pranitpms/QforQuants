@@ -10,7 +10,7 @@
 	            'requestError': function (rejection) {
 
 	                if (canRecover(rejection)) {
-	                    return responseOrNewPromise
+	                    return responseOrNewPromise;
 	                }
 	                return $q.reject(rejection);
 	            },
@@ -25,7 +25,7 @@
 	            'responseError': function (rejection) {
 	                $("#spinner").hide();
 	                if (canRecover(rejection)) {
-	                    return responseOrNewPromise
+	                    return responseOrNewPromise;
 	                }
 	                return $q.reject(rejection);
 	            }

@@ -11,7 +11,7 @@
 					config : '='
 				},
 				link     : function(scope, element, attrs){
-					scope.getPlaceHolder(){
+					scope.getPlaceHolder = function(){
 						return scope.config.Label;
 					};
 				}

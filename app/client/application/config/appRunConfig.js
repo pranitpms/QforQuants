@@ -19,5 +19,5 @@
                     $state.transitionTo("Home.Login");
                 }
             });
-        })
+        });
 })();

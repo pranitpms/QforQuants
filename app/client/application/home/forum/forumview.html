@@ -6,10 +6,12 @@
             </div>
             <div class="text-center article-title">
             <span class="text-muted"><i class="fa fa-clock-o"></i> {{forumview.questionDetails.postDate}}</span>
-                <h1>
+                <h2 class="font-bold">
                     {{forumview.questionDetails.title}}
-                </h1>
+                </h2>
             </div>
+
+           
             <p >
                 <div ng-bind-html="forumview.questionDetails.question">
                     
@@ -29,6 +31,13 @@
                         <div> <i class="fa fa-comments-o"> </i> 56 comments </div>
                         <i class="fa fa-eye"> </i> 144 views
                     </div> -->
+                </div>
+                <div class="pull-right">
+                    <span>
+                    <h3 class="font-bold " style="color: darkcyan;">
+                        <small>Posted by :-</small>{{forumview.questionDetails._user[0].name}}
+                    </h3>  
+                    </span>
                 </div>
             </div>
 

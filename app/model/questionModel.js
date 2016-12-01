@@ -12,7 +12,8 @@ var questionSchema = new Schema({
 	postDate   : Date,
 	userId     : Number,
 	rate       : Number,
-	lastModify : Date
+	lastModify : Date,
+	_user      : [{ type: Schema.Types.ObjectId, ref: 'Users' }],
 },
 { strict: false });
 

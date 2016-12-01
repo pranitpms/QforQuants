@@ -15,7 +15,7 @@ ng-model="login.username" placeholder="Username" validation="required">
 					config : '='
 				},
 				link     : function(scope, element, attrs){
-					scope.getPlaceHolder(){
+					scope.getPlaceHolder = function(){
 						return scope.config.Label;
 					};
 				}

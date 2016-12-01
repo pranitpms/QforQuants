@@ -13,15 +13,15 @@
 	angular.module('iq-ui')
 		.directive('iqDatepicker',function(){
 			return {
-				template : `<p class="input-group">
-							    <input type="text" uib-datepicker-popup="{{format}}" is-open="isopened" min-date="minDate"
-							    max-date="maxDate" datepicker-options="dateOptions" close-text="Close" placeholder="{{::getPlaceHolder()}}"/>
-							    <span class="input-group-btn">
-							        <button type="button" class="btn btn-default" ng-click="open($event)" style="height: 34px;">
-							            <i class="fa fa-calendar"></i>
-							        </button> 
-							    </span>
-							</p>`,
+				template : '<p class="input-group">'+
+								'<input type="text" uib-datepicker-popup="{{format}}" is-open="isopened" min-date="minDate"'+
+								'max-date="maxDate" datepicker-options="dateOptions" close-text="Close" placeholder="{{::getPlaceHolder()}}"/>'+
+								'<span class="input-group-btn">'+
+									'<button type="button" class="btn btn-default" ng-click="open($event)" style="height: 34px;">'+
+										'<i class="fa fa-calendar"></i>'+
+									'</button>'+
+								'</span>'+
+							'</p>',
 				restrict : 'AE',
 				require  : ngModel,
 				replace  : true,
@@ -40,12 +40,13 @@
 		            scope.minDate = scope.config.minDate;
 		            scope.maxDate = scope.config.maxDate;
 					
-					scope.getPlaceHolder(){
+					scope.getPlaceHolder = function(){
 						return scope.config.Label;
 					};
 
 					scope.open = function ($event) {
-		               return scope.isopened = true;
+		                scope.isopened = true;
+		                return true;
 		            };
 				}
 			};

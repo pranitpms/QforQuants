@@ -33,7 +33,7 @@
 		 				sessionService.UserId          = result[0].userID;
 
 		 				var role = result[0].role;
-		 				if(role == 0){
+		 				if(role === 0){
 		 					sessionService.IsAdmin = true;
 		 				}
 		 				else{
@@ -49,6 +49,6 @@
 					toastr.error(error);
 					console.log(error);
 				});
-			}
+			};
 		});
 })();

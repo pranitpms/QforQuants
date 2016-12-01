@@ -4,13 +4,13 @@
 		.factory('loginService',function($http,$q){
 
 			var vm      = this;
-			var apiUri  = 'api/user'
+			var apiUri  = 'api/user';
 			var baseUrl = 'user/';
 
 			vm.createCondition = function(name,pass){
 					var con = 'username:' + name + ',password:' + pass ;
 				return con;
-			}
+			};
 
 			vm.authenticateUser = function(userName,password){
 				
@@ -51,7 +51,7 @@
 			return {
 				AuthenticateUser : vm.authenticateUser,
 				RegisterUser     : vm.registerUser
-			}
+			};
 
 		});
 })();

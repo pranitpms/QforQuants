@@ -10,7 +10,6 @@
 				},
 				link     : function(scope, element, attrs){
 					
-					scope.searchText;
 					scope.onClickSearch = scope.onSearch;
 					scope.inputName = '';
 
@@ -27,7 +26,7 @@
 					
 				}
 
-			}
+			};
 			
 		});
 })();

@@ -8,9 +8,14 @@
 			query.qModel     = questionFormConfig.Model;
 			query.category   = null;
 
-			query.qModel.userId     = sessionService.UserId;
-			query.qModel.postDate   = new Date();
-			query.qModel.lastModify = new Date();
+			var initializeFields = function(){
+				query.qModel.userId     = sessionService.UserId;
+				query.qModel._user      = sessionService.User._id;
+				query.qModel.postDate   = new Date();
+				query.qModel.lastModify = new Date();
+				query.qModel.rate       = 0;
+				query.qModel.catagoryId = query.category.categoryId;
+			}
 
 			query.onClickSave = function(){
 				if(!query.category){
@@ -18,7 +23,7 @@
 					return;
 				}
 
-				query.qModel.catagoryId = query.category.catagoryId;
+				initializeFields();
 
 				var promise = queryService.SaveQuery(query.qModel);
 
@@ -30,5 +35,5 @@
 					toastr.error(error);
 				});
 			};
-		})
+		});
 })();

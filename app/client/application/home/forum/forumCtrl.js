@@ -5,8 +5,7 @@
 			var element = angular.element($('#homeDiv'));
 				if(element[0].hidden){
 					element[0].hidden = false;
-				};
-
+				}
 
 			var forum = this;
 			forum.count = count || 0;
@@ -42,8 +41,8 @@
 					forum.questions = result;
 				}).catch(function(error){
 					toastr.error(error);
-				})
-			}
+				});
+			};
 
 			forum.onClickNextButton = function(){
 				if(forum.currentPage < forum.lastPage){
@@ -56,7 +55,7 @@
 						forum.questions = result;
 					}).catch(function(error){
 						toastr.error(error);
-					})
+					});
 				}
 			};
 
@@ -70,7 +69,7 @@
 						forum.questions = result;
 					}).catch(function(error){
 						toastr.error(error);
-					})
+					});
 				}
 			};
 
@@ -114,7 +113,7 @@
 					console.log(error);
 					toastr.error(error);
 				});
-			}
+			};
 
 		});
 })();

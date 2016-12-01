@@ -26,7 +26,7 @@
 						if(data.userId){
 							return data.userId;
 						}
-						return data.retrive('userId')
+						return data.retrive('userId');
 					},
 					set : function(val){
 						data.userId = val;

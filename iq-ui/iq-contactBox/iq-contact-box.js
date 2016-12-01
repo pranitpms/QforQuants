@@ -11,8 +11,6 @@
 				link     : function(scope, element, attrs){
 					scope.users = scope.config;
 				}
-
-			}
-			
+			};
 		});
 })();

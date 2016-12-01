@@ -7,7 +7,7 @@
 			var model    = categoryFormConfig.Model;
 			category.config = {
 				columns:[]
-			}
+			};
 
 			category.dataList = categories || [];
 			category.instance = angular.copy(model);
@@ -23,13 +23,13 @@
 
 			category.toggleEditMode = function(data){
 				data.editMode = !data.editMode;
-			}
+			};
 
 			category.addObject = function(){
 			var promise = categoryService.SaveCategory(category.instance);
 
 			promise.then(function(result){
-				toastr.success('Record Saved Successfuly!!!')
+				toastr.success('Record Saved Successfuly!!!');
 				category.dataList.push(result);
 			}).catch(function(error){
 				toastr.error(error);
@@ -42,7 +42,7 @@
 			var promise = categoryService.UpdateCategory(data,data._id);
 
 			promise.then(function(result){
-				toastr.success('Record Updated Successfuly!!!')
+				toastr.success('Record Updated Successfuly!!!');
 				var index = _.findIndex(category.dataList,function(cat){
 					return cat.categoryId === result.categoryId;
 				});
@@ -57,7 +57,7 @@
 			var promise = categoryService.DeleteCategory(data._id);
 
 			promise.then(function(result){
-				toastr.success('Record Deleted Successfuly!!!')
+				toastr.success('Record Deleted Successfuly!!!');
 				var index = _.findIndex(category.dataList,function(cat){
 					return cat.categoryId === result.categoryId;
 				});
@@ -67,5 +67,5 @@
 				console.log(error);
 			});
 		};
-		})
+		});
 })();

@@ -1,13 +1,18 @@
 <html ng-App='QforQuants'>
     <head>
         <!-- bower:css -->
-         <link rel="stylesheet" type="text/css" href="bower_components/angular-ui-select/dist/select.min.css">
-    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="bower_components/angular-toastr/dist/angular-toastr.css">
-    <link rel="stylesheet" type="text/css" href="bower_components/angular-input-stars-directive/angular-input-stars.css">
-    <link rel="stylesheet" type="text/css" href="style/style.css">
-    <link rel="stylesheet" type="text/css" href="style/trix.css">
-    <link rel="stylesheet" type="text/css" href="fonts/css/font-awesome.min.css">
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css">
+        <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css">
+        <link rel="stylesheet" href="bower_components/trix/dist/trix.css">
+
+        
+        <!-- endbower -->
+
+        <!-- injector:css -->
+        <link rel="stylesheet" href="style/style.css">
+        <link rel="stylesheet" href="fonts/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/css/font-awesome.min.css">
         <!-- endinjector -->
     </head>
     <body class="fixed-nav pace-done mini-navbar">
@@ -49,35 +54,37 @@
     </div>
 
     <!-- bower:js -->
-    <script src="../../bower_components/es5-shim/es5-shim.js"></script>
-    <script src="../../bower_components/jquery/dist/jquery.js"></script>
-    <script src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="../../bower_components/angular/angular.js"></script>
-    <script src="../../bower_components/angular-animate/angular-animate.js"></script>
-    <script src="../../bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="../../bower_components/lodash/lodash.js"></script>
-    <script src="../../bower_components/angular-touch/angular-touch.js"></script>
-    <script src="../../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="../../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="../../bower_components/angular-ui-select/dist/select.js"></script>
-    <script src="../../bower_components/ngstorage/ngStorage.js"></script>
-    <script src="../../bower_components/angular-cache/dist/angular-cache.js"></script>
-    <script src="../../bower_components/moment/moment.js"></script>
-    <script src="../../bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
-    <script src="../../bower_components/trix/dist/trix.js"></script>
-    <script src="../../bower_components/angular-trix/dist/angular-trix.js"></script>
-    <script src="../../bower_components/angular-input-stars-directive/angular-input-stars.js"></script>
-    <script src="../../bower_components/angular-utils-ui-breadcrumbs/uiBreadcrumbs.js"></script>
-    <script src="../../bower_components/angular-translate/angular-translate.js"></script>
-    <script src="../../bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
-    <script src="../../bower_components/angular-validation-ghiscoding/dist/angular-validation.min.js"></script>
-    <script src="../../bower_components/angular-validation-ghiscoding/src/validation-directive.js"></script>
-    <script src="../../bower_components/angular-validation-ghiscoding/src/validation-common.js"></script>
-    <script src="../../bower_components/angular-validation-ghiscoding/src/validation-rules.js"></script>
-    <script src="../../bower_components/angular-validation-ghiscoding/src/validation-service.js"></script>
+    <script type="text/javascript" src="bower_components/es5-shim/es5-shim.js"></script>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script type="text/javascript" src="bower_components/lodash/lodash.js"></script>
+    <script type="text/javascript" src="bower_components/angular-touch/angular-touch.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-select/dist/select.js"></script>
+    <script type="text/javascript" src="bower_components/ngstorage/ngStorage.js"></script>
+    <script type="text/javascript" src="bower_components/angular-cache/dist/angular-cache.js"></script>
+    <script type="text/javascript" src="bower_components/moment/moment.js"></script>
+    <script type="text/javascript" src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script type="text/javascript" src="bower_components/trix/dist/trix.js"></script>
+    <script type="text/javascript" src="bower_components/angular-trix/dist/angular-trix.js"></script>
+    <script type="text/javascript" src="bower_components/angular-input-stars-directive/angular-input-stars.js"></script>
+    <script type="text/javascript" src="bower_components/angular-utils-ui-breadcrumbs/uiBreadcrumbs.js"></script>
+    <script type="text/javascript" src="bower_components/angular-translate/angular-translate.js"></script>
+    <script type="text/javascript" src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+    <script type="text/javascript" src="bower_components/angular-validation-ghiscoding/dist/angular-validation.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-validation-ghiscoding/src/validation-directive.js"></script>
+    <script type="text/javascript" src="bower_components/angular-validation-ghiscoding/src/validation-common.js"></script>
+    <script type="text/javascript" src="bower_components/angular-validation-ghiscoding/src/validation-rules.js"></script>
+    <script type="text/javascript" src="bower_components/angular-validation-ghiscoding/src/validation-service.js"></script>
     <!-- endbower -->
 
     <!-- injector:js -->
+    <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="directives/module.js"></script>
     <script type="text/javascript" src="app/admin/adminCtrl.js"></script>
     <script type="text/javascript" src="app/admin/adminRoute.js"></script>
     <script type="text/javascript" src="app/admin/category/categoryCtrl.js"></script>
@@ -85,7 +92,6 @@
     <script type="text/javascript" src="app/admin/userRole/userRoleCtrl.js"></script>
     <script type="text/javascript" src="app/admin/userRole/userRoleService.js"></script>
     <script type="text/javascript" src="app/admin/users/userCtrl.js"></script>
-    <script type="text/javascript" src="app/app.js"></script>
     <script type="text/javascript" src="app/common/serviceFactory.js"></script>
     <script type="text/javascript" src="app/common/sessionService.js"></script>
     <script type="text/javascript" src="app/common/userService.js"></script>
@@ -115,14 +121,13 @@
     <script type="text/javascript" src="app/question/search/searchCtrl.js"></script>
     <script type="text/javascript" src="app/question/search/searchRoute.js"></script>
     <script type="text/javascript" src="app/question/search/searchService.js"></script>
-    /iq-ui/iq-contactBox/iq-contact-box.js
-    /iq-ui/iq-datepicker/iq-datepicker.js
-    /iq-ui/iq-dropdown/iq-dropdown.js
-    /iq-ui/iq-emailTextBox/iq-input-email.js
-    /iq-ui/iq-passwordTextbox/iq-input-password.js
-    /iq-ui/iq-searchBox/iq-search-box.js
-    /iq-ui/iq-textbox/iq-input-text.js
-    /iq-ui/module.js
+    <script type="text/javascript" src="directives/iq-contactBox/iq-contact-box.js"></script>
+    <script type="text/javascript" src="directives/iq-datepicker/iq-datepicker.js"></script>
+    <script type="text/javascript" src="directives/iq-dropdown/iq-dropdown.js"></script>
+    <script type="text/javascript" src="directives/iq-emailTextBox/iq-input-email.js"></script>
+    <script type="text/javascript" src="directives/iq-passwordTextbox/iq-input-password.js"></script>
+    <script type="text/javascript" src="directives/iq-searchBox/iq-search-box.js"></script>
+    <script type="text/javascript" src="directives/iq-textbox/iq-input-text.js"></script>
     <!-- endinjector -->
     
     </body>

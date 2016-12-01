@@ -32,7 +32,7 @@
 					rate_4     : 0,
 					rate_5     : 0,
 					avgRating  : 0
-				}
+				};
 			};
 
 		//	var setOldValue = 
@@ -47,8 +47,8 @@
 				}
 
 				forumview.model.lastModify = new Date();
-				forumview.model.userId = sessionService.UserId
-				forumview.model._user  = sessionService.User._id
+				forumview.model.userId = sessionService.UserId;
+				forumview.model._user  = sessionService.User._id;
 
 				var promise = forumviewService.SaveReply(forumview.model);
 
@@ -96,15 +96,15 @@
 
 			 forumview.setValue = function(index,replyObj){
 			 	 switch(index){
-			 	 	case 1 :  (replyObj.rate_1)  ? replyObj.rate_1 = replyObj.rate_1 + 1 : replyObj.rate_1 = 1 ;
+			 	 	case 1 :  replyObj.rate_1 = parseInt(replyObj.rate_1) + 1;
 			 	 			  break;
-			 	 	case 2 :  (replyObj.rate_2)  ? replyObj.rate_2 = replyObj.rate_2 + 1 : replyObj.rate_2 = 1 ;
+			 	 	case 2 :  replyObj.rate_2 = parseInt(replyObj.rate_2) + 1;
 			 	 			  break;
-			 	 	case 3 :  (replyObj.rate_3)  ? replyObj.rate_3 = replyObj.rate_3 + 1 : replyObj.rate_3 = 1 ;
+			 	 	case 3 :  replyObj.rate_3 = parseInt(replyObj.rate_3) + 1;
 			 	 			  break;
-			 	 	case 4 :  (replyObj.rate_4)  ? replyObj.rate_4 = replyObj.rate_4 + 1 : replyObj.rate_4 = 1 ;
+			 	 	case 4 :  replyObj.rate_4 = parseInt(replyObj.rate_4) + 1;
 			 	 			  break;
-			 	 	case 5 :  (replyObj.rate_5)  ? replyObj.rate_5 = replyObj.rate_5 + 1 : replyObj.rate_5 = 1 ;
+			 	 	case 5 :  replyObj.rate_5 = parseInt(replyObj.rate_5) + 1;
 			 	 			  break;
 			 	 }
 			 };

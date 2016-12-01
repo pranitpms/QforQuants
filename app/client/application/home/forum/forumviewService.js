@@ -8,7 +8,7 @@
 
 			var getAllReplys = function(id){
 
-				var con = 'questionId:' + id 
+				var con = 'questionId:' + id;
 
 				var deffered = $q.defer();
 

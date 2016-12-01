@@ -37,7 +37,7 @@
 				}).catch(function(error){
 					toastr.error(error);
 				});
-			}
+			};
 
 			search.onClickNextButton = function(){
 				if(search.currentPage < search.lastPage){
